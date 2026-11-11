@@ -1,0 +1,7 @@
+{
+  "name": "megalakakis",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Γιάννης & Γιώργος Μεγαλακάκης — site + phone panel (Netlify Functions + Blobs, edits never deploy)",
+  "dependencies": { "@netlify/blobs": "^11.0.3" }
+}

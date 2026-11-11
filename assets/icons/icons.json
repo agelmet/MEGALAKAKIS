@@ -1,0 +1,16 @@
+{
+ "source": {
+  "kind": "file",
+  "ref": "../src/icon.svg"
+ },
+ "source_md5": "64e3ac6f752afb77af2d42e76a1eeb17",
+ "version": "9f2dbee1",
+ "tile": null,
+ "crop": null,
+ "header": [
+  "inline",
+  "index.html",
+  "d572ec023d04154b5898caeda582862e"
+ ],
+ "made": "2026-11-11"
+}

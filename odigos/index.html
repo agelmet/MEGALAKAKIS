@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Οδηγός · Πώς αλλάζω την ιστοσελίδα μου</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light only">
+<link rel="icon" href="../favicon.ico">
+<style id="advon-fonts">
+@font-face{font-family:'GFS Didot';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/gfs-didot-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'GFS Didot';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/gfs-didot-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/commissioner-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/commissioner-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:600;font-display:swap;src:url(../assets/fonts/commissioner-greek-600-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:600;font-display:swap;src:url(../assets/fonts/commissioner-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<style>
+:root{--paper:#F5EFE4;--card:#FFFDF8;--ink:#1B1611;--ink2:#5A4E40;--gold:#C9A35C;--goldd:#83602A;--line:#E3D8C4;--night:#0D0A07;color-scheme:light only}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.65 'Commissioner',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'GFS Didot',Georgia,serif;font-weight:400;line-height:1.15;margin:0}
+.hero{background:radial-gradient(80% 90% at 80% 0%,#2A1E12,var(--night) 70%);color:#EFE6D6;padding:56px 18px 64px;text-align:center}
+.hero svg{width:96px;height:64px;color:var(--gold);display:block;margin:0 auto 14px}
+.hero h1{font-size:clamp(32px,6vw,52px);margin-bottom:12px}
+.hero p{max-width:620px;margin:0 auto;color:#CDBFA7}
+.box{max-width:760px;margin:-34px auto 0;padding:0 16px}
+.key{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 10px 30px rgba(20,14,8,.08)}
+.key b{display:block;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--goldd);margin-bottom:6px}
+.key .v{font:600 20px/1.4 'Commissioner',sans-serif;word-break:break-word}
+.key .v code{background:#F3EBDB;padding:2px 8px;border-radius:6px;font-family:inherit}
+.key p{margin:12px 0 0;color:var(--ink2);font-size:16px}
+.step{max-width:760px;margin:56px auto;padding:0 16px;display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:28px;align-items:start}
+.step .n{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;margin-bottom:12px}
+.step h2{font-size:30px;margin-bottom:12px}
+.step ol,.step ul{padding-left:22px;margin:0 0 12px}
+.step li{margin-bottom:8px}
+.step .tip{background:#FFF7E3;border:1px solid #F0DDB0;border-radius:14px;padding:12px 14px;font-size:16px;color:#5A4300}
+.shots{display:flex;flex-direction:column;gap:14px}
+.shots img{width:100%;height:auto;border-radius:22px;border:6px solid #1B1611;box-shadow:0 14px 34px rgba(20,14,8,.22);background:#fff}
+.btnl{display:inline-block;background:#1B1611;color:#fff;border-radius:999px;padding:3px 12px;font-weight:600;font-size:15px;white-space:nowrap}
+.btng{display:inline-block;background:linear-gradient(180deg,#D9B56C,#B98F45);color:#1A120A;border-radius:999px;padding:3px 12px;font-weight:700;font-size:15px;white-space:nowrap}
+.end{max-width:760px;margin:40px auto 80px;padding:0 16px;text-align:center}
+.end .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px}
+.end a{color:var(--goldd)}
+@media (max-width:640px){.step{grid-template-columns:1fr}.shots{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.shots img{width:72%;flex:none;scroll-snap-align:start}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="spiral" viewBox="-4 -4 108 68"><path d="M29.22 26.23 L29.02 26.06 L28.80 25.89 L28.56 25.74 L28.31 25.60 L28.04 25.48 L27.76 25.37 L27.47 25.28 L27.16 25.21 L26.85 25.16 L26.52 25.13 L26.19 25.12 L25.85 25.14 L25.51 25.18 L25.16 25.24 L24.81 25.33 L24.47 25.45 L24.12 25.58 L23.78 25.75 L23.45 25.94 L23.12 26.15 L22.80 26.39 L22.50 26.66 L22.20 26.94 L21.92 27.26 L21.66 27.59 L21.42 27.95 L21.20 28.32 L21.00 28.72 L20.82 29.14 L20.67 29.57 L20.54 30.01 L20.45 30.48 L20.38 30.95 L20.34 31.43 L20.33 31.92 L20.35 32.42 L20.41 32.92 L20.50 33.42 L20.62 33.93 L20.78 34.43 L20.97 34.92 L21.19 35.41 L21.45 35.89 L21.74 36.36 L22.07 36.81 L22.42 37.25 L22.81 37.67 L23.23 38.07 L23.68 38.44 L24.15 38.79 L24.66 39.12 L25.19 39.41 L25.74 39.67 L26.31 39.91 L26.90 40.10 L27.52 40.26 L28.14 40.39 L28.78 40.47 L29.43 40.52 L30.09 40.52 L30.76 40.48 L31.42 40.40 L32.09 40.28 L32.76 40.11 L33.42 39.90 L34.07 39.65 L34.71 39.35 L35.34 39.02 L35.95 38.64 L36.54 38.21 L37.11 37.75 L37.66 37.25 L38.18 36.71 L38.66 36.14 L39.12 35.53 L39.54 34.89 L39.92 34.21 L40.26 33.51 L40.56 32.78 L40.82 32.03 L41.03 31.26 L41.20 30.47 L41.31 29.66 L41.38 28.84 L41.40 28.01 L41.36 27.18 L41.27 26.34 L41.13 25.50 L40.94 24.67 L40.69 23.84 L40.39 23.03 L40.04 22.23 L39.64 21.44 L39.18 20.68 L38.68 19.94 L38.12 19.22 L37.52 18.54 L36.87 17.89 L36.18 17.28 L35.44 16.71 L34.67 16.18 L33.86 15.69 L33.02 15.26 L32.14 14.87 L31.23 14.54 L30.30 14.26 L29.35 14.03 L28.38 13.87 L27.39 13.76 L26.40 13.72 L25.39 13.73 L24.38 13.81 L23.37 13.95 L22.37 14.16 L21.37 14.43 L20.38 14.76 L19.41 15.15 L18.46 15.61 L17.54 16.12 L16.64 16.70 L15.77 17.33 L14.94 18.03 L14.15 18.77 L13.40 19.57 L12.70 20.42 L12.05 21.31 L11.45 22.25 L10.90 23.23 L10.41 24.25 L9.99 25.30 L9.62 26.38 L9.32 27.49 L9.09 28.62 L8.93 29.78 L8.84 30.94 L8.82 32.12 L8.88 33.30 L9.00 34.48 L9.20 35.66 L9.48 36.83 L9.82 37.99 L10.24 39.14 L10.73 40.26 L11.30 41.35 L11.93 42.42 L12.63 43.44 L13.39 44.43 L14.22 45.38 L15.12 46.28 L16.07 47.12 L17.07 47.91 L18.13 48.65 L19.23 49.31 L20.38 49.92 L21.58 50.45 L22.81 50.91 L24.07 51.30 L25.36 51.61 L26.67 51.85 L28.00 52.00 C46.00 52.00 54.00 8.00 72.00 8.00 L73.33 8.15 L74.64 8.39 L75.93 8.70 L77.19 9.09 L78.42 9.55 L79.62 10.08 L80.77 10.69 L81.87 11.35 L82.93 12.09 L83.93 12.88 L84.88 13.72 L85.78 14.62 L86.61 15.57 L87.37 16.56 L88.07 17.58 L88.70 18.65 L89.27 19.74 L89.76 20.86 L90.18 22.01 L90.52 23.17 L90.80 24.34 L91.00 25.52 L91.12 26.70 L91.18 27.88 L91.16 29.06 L91.07 30.22 L90.91 31.38 L90.68 32.51 L90.38 33.62 L90.01 34.70 L89.59 35.75 L89.10 36.77 L88.55 37.75 L87.95 38.69 L87.30 39.58 L86.60 40.43 L85.85 41.23 L85.06 41.97 L84.23 42.67 L83.36 43.30 L82.46 43.88 L81.54 44.39 L80.59 44.85 L79.62 45.24 L78.63 45.57 L77.63 45.84 L76.63 46.05 L75.62 46.19 L74.61 46.27 L73.60 46.28 L72.61 46.24 L71.62 46.13 L70.65 45.97 L69.70 45.74 L68.77 45.46 L67.86 45.13 L66.98 44.74 L66.14 44.31 L65.33 43.82 L64.56 43.29 L63.82 42.72 L63.13 42.11 L62.48 41.46 L61.88 40.78 L61.32 40.06 L60.82 39.32 L60.36 38.56 L59.96 37.77 L59.61 36.97 L59.31 36.16 L59.06 35.33 L58.87 34.50 L58.73 33.66 L58.64 32.82 L58.60 31.99 L58.62 31.16 L58.69 30.34 L58.80 29.53 L58.97 28.74 L59.18 27.97 L59.44 27.22 L59.74 26.49 L60.08 25.79 L60.46 25.11 L60.88 24.47 L61.34 23.86 L61.82 23.29 L62.34 22.75 L62.89 22.25 L63.46 21.79 L64.05 21.36 L64.66 20.98 L65.29 20.65 L65.93 20.35 L66.58 20.10 L67.24 19.89 L67.91 19.72 L68.58 19.60 L69.24 19.52 L69.91 19.48 L70.57 19.48 L71.22 19.53 L71.86 19.61 L72.48 19.74 L73.10 19.90 L73.69 20.09 L74.26 20.33 L74.81 20.59 L75.34 20.88 L75.85 21.21 L76.32 21.56 L76.77 21.93 L77.19 22.33 L77.58 22.75 L77.93 23.19 L78.26 23.64 L78.55 24.11 L78.81 24.59 L79.03 25.08 L79.22 25.57 L79.38 26.07 L79.50 26.58 L79.59 27.08 L79.65 27.58 L79.67 28.08 L79.66 28.57 L79.62 29.05 L79.55 29.52 L79.46 29.99 L79.33 30.43 L79.18 30.86 L79.00 31.28 L78.80 31.68 L78.58 32.05 L78.34 32.41 L78.08 32.74 L77.80 33.06 L77.50 33.34 L77.20 33.61 L76.88 33.85 L76.55 34.06 L76.22 34.25 L75.88 34.42 L75.53 34.55 L75.19 34.67 L74.84 34.76 L74.49 34.82 L74.15 34.86 L73.81 34.88 L73.48 34.87 L73.15 34.84 L72.84 34.79 L72.53 34.72 L72.24 34.63 L71.96 34.52 L71.69 34.40 L71.44 34.26 L71.20 34.11 L70.98 33.94 L70.78 33.77" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+<header class="hero">
+  <svg aria-hidden="true"><use href="#spiral"/></svg>
+  <h1>Πώς αλλάζω την ιστοσελίδα μου</h1>
+  <p>Ένας απλός οδηγός, βήμα βήμα. Από το κινητό σας, σε ένα λεπτό: νέα, σεμινάρια, μαθήματα και παραστάσεις, με φωτογραφία.</p>
+</header>
+<div class="box"><div class="key">
+  <b>Πού μπαίνω</b>
+  <p class="v"><span id="adminUrl">megalakakis.gr/admin.html</span></p>
+  <p>Ο κωδικός σάς δίνεται από εμάς. Συμβουλή: ανοίξτε τη σελίδα στο κινητό και πατήστε «Προσθήκη στην οθόνη Αφετηρίας», για να την έχετε σαν εφαρμογή.</p>
+</div></div>
+
+<section class="step">
+  <div><span class="n">1</span><h2>Μπείτε στο πάνελ</h2>
+    <ol><li>Ανοίξτε τη διεύθυνση του πάνελ.</li><li>Γράψτε τον κωδικό σας.</li><li>Πατήστε <span class="btng">Είσοδος</span>.</li></ol>
+    <p class="tip">Βλέπετε τέσσερις ενότητες: <b>Νέα, Μαθήματα, Παραστάσεις, Στοιχεία</b>. Τίποτα δεν αλλάζει στην ιστοσελίδα μέχρι να πατήσετε «Δημοσίευση».</p></div>
+  <div class="shots"><img src="01b-login-filled.webp" alt="Η οθόνη εισόδου στο πάνελ" width="520" height="1125" loading="lazy"><img src="02-list.webp" alt="Η λίστα με τα νέα" width="520" height="1125" loading="lazy"></div>
+</section>
+
+<section class="step">
+  <div><span class="n">2</span><h2>Βάλτε μια νέα ανακοίνωση</h2>
+    <ol><li>Στα <b>Νέα</b>, πατήστε <span class="btnl">+ Νέα ανακοίνωση</span>.</li>
+      <li>Διαλέξτε το <b>είδος</b> (Σεμινάριο, Μαθήματα, Παράσταση…).</li>
+      <li>Γράψτε τον <b>τίτλο</b>.</li>
+      <li>Πατήστε <span class="btnl">Διαλέξτε φωτογραφία</span> και πάρτε την αφίσα από το κινητό σας. Μικραίνει μόνη της.</li>
+      <li>Συμπληρώστε <b>Πότε</b>, <b>Πού</b>, λίγα λόγια και το <b>τηλέφωνο</b> για κρατήσεις.</li>
+      <li>Πατήστε <span class="btnl">Έτοιμο</span> πάνω δεξιά.</li></ol>
+    <p class="tip">Ό,τι δεν ξέρετε, το αφήνετε κενό. Τα αγγλικά είναι προαιρετικά: αν δεν τα γράψετε, οι ξένοι επισκέπτες βλέπουν τα ελληνικά.</p></div>
+  <div class="shots"><img src="04-editor-filled.webp" alt="Συμπλήρωση νέας ανακοίνωσης" width="520" height="1125" loading="lazy"><img src="05-editor-bottom.webp" alt="Το κάτω μέρος της φόρμας" width="520" height="1125" loading="lazy"></div>
+</section>
+
+<section class="step">
+  <div><span class="n">3</span><h2>Πατήστε «Δημοσίευση»</h2>
+    <ol><li>Κάτω γράφει «Έχετε αλλαγές που δεν έχουν δημοσιευτεί».</li><li>Πατήστε <span class="btng">Δημοσίευση</span>.</li><li>Βγαίνει «Δημοσιεύτηκε!» — η ιστοσελίδα άλλαξε αμέσως, για όλους.</li><li>Πατήστε <span class="btnl" style="background:#fff;color:#1B1611;border:1px solid #E3D8C4">Δείτε τη σελίδα</span> για να το δείτε.</li></ol>
+    <p class="tip">Η πιο πρόσφατη ανακοίνωση βγαίνει μεγάλη στην αρχή. Οι παλαιότερες μπαίνουν από κάτω, σε σειρά.</p></div>
+  <div class="shots"><img src="06-saved-unpublished.webp" alt="Αλλαγές που περιμένουν δημοσίευση" width="520" height="1125" loading="lazy"><img src="12-site-news.webp" alt="Η νέα ανακοίνωση στην ιστοσελίδα" width="520" height="1125" loading="lazy"></div>
+</section>
+
+<section class="step">
+  <div><span class="n">4</span><h2>Αλλάξτε ή σβήστε κάτι</h2>
+    <ol><li>Πατήστε το μολυβάκι ✎ δίπλα στην ανακοίνωση.</li><li>Αλλάξτε ό,τι θέλετε και πατήστε <span class="btnl">Έτοιμο</span>.</li><li>Για να τη σβήσετε: κάτω-κάτω, <b style="color:#B3261E">Διαγραφή</b>, και ξανά για επιβεβαίωση.</li><li>Στο τέλος, <span class="btng">Δημοσίευση</span>.</li></ol>
+    <p class="tip">Μην ανησυχείτε: κρατάμε πάντα και την προηγούμενη μορφή. Αν κάτι σβηστεί κατά λάθος, πείτε μας και το επαναφέρουμε.</p></div>
+  <div class="shots"><img src="11-delete.webp" alt="Αλλαγή και διαγραφή" width="520" height="1125" loading="lazy"></div>
+</section>
+
+<section class="step">
+  <div><span class="n">5</span><h2>Μαθήματα της νέας χρονιάς</h2>
+    <ol><li>Πηγαίνετε στα <b>Μαθήματα</b>.</li><li>Αλλάξτε τη <b>διδακτική περίοδο</b> (π.χ. 2026 – 2027).</li><li>Με το ✎ αλλάζετε ώρες ή τηλέφωνα, με το <span class="btnl">+ Νέο μάθημα</span> προσθέτετε νέο σύλλογο. Το βελάκι ↑ το ανεβάζει πιο ψηλά.</li><li><span class="btng">Δημοσίευση</span>.</li></ol></div>
+  <div class="shots"><img src="08-lessons.webp" alt="Τα μαθήματα" width="520" height="1125" loading="lazy"></div>
+</section>
+
+<section class="step">
+  <div><span class="n">6</span><h2>Νέα παράσταση</h2>
+    <ol><li>Πηγαίνετε στις <b>Παραστάσεις</b> και πατήστε <span class="btnl">+ Νέα παράσταση</span>.</li><li>Χρονιά, τίτλος, αφίσα (αν έχετε) και λίγα λόγια.</li><li><span class="btnl">Έτοιμο</span> και <span class="btng">Δημοσίευση</span>.</li></ol></div>
+  <div class="shots"><img src="09-shows.webp" alt="Οι παραστάσεις" width="520" height="1125" loading="lazy"></div>
+</section>
+
+<section class="step">
+  <div><span class="n">7</span><h2>Τηλέφωνο, email, Facebook</h2>
+    <p>Στα <b>Στοιχεία</b> αλλάζετε το τηλέφωνο και το email που βλέπει ο επισκέπτης, ανάβετε Viber / WhatsApp και βάζετε τους συνδέσμους από Facebook, Instagram ή YouTube. Ό,τι αφήσετε κενό δεν εμφανίζεται.</p></div>
+  <div class="shots"><img src="10-contact.webp" alt="Τα στοιχεία επικοινωνίας" width="520" height="1125" loading="lazy"></div>
+</section>
+
+<div class="end"><div class="card">
+  <h2 style="font-size:28px;margin-bottom:10px">Χρειάζεστε βοήθεια;</h2>
+  <p>Στείλτε μας μήνυμα και το κάνουμε μαζί. Ό,τι αλλάζετε από το πάνελ, αλλάζει αμέσως — χωρίς χρέωση και χωρίς αναμονή.</p>
+  <p style="margin:0;font-size:15px;color:#5A4E40">Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener"><b>Advon Media</b></a></p>
+</div></div>
+<script>(function(){var h=location.hostname,e=document.getElementById('adminUrl');if(/drafts\.advonmedia\.com/.test(h))e.textContent='drafts.advonmedia.com/MEGALAKAKIS/admin.html';})();</script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+{
+ "updated": "2026-11-11",
+ "news": [
+  {
+   "id": "n4",
+   "kind": "seminar",
+   "date": "2026-09-30",
+   "title": "Δύο σεμινάρια κρητικού χορού στην Αθήνα",
+   "title_en": "Two Cretan dance seminars in Athens",
+   "when": "Κυριακή 4 & Κυριακή 11 Οκτωβρίου 2026 · 17:00 – 20:00",
+   "when_en": "Sunday 4 & Sunday 11 October 2026 · 17:00 – 20:00",
+   "place": "Ροπή Dance Studio, Λεωνίδου 6, Άγιος Δημήτριος (300 μ. από το μετρό Δάφνη)",
+   "place_en": "Ropi Dance Studio, Leonidou 6, Agios Dimitrios (300 m from Dafni metro)",
+   "text": "Με τον Γιάννη Μεγαλακάκη. Για έναν κρητικό χορό που δεν είναι μόνο βήματα, αλλά τόποι, άνθρωποι, μνήμη και ζωή. Η θέση κατοχυρώνεται με προπληρωμή — περιορισμένος αριθμός συμμετοχών.",
+   "text_en": "With Giannis Megalakakis. For a Cretan dance that is not only steps, but places, people, memory and life. Places are secured with prepayment — limited number of participants.",
+   "img": "assets/img/megalakakis-nea-dyo-seminaria-athina-1000.webp",
+   "phone": "697 187 0962",
+   "link": "",
+   "link_label": ""
+  },
+  {
+   "id": "n3",
+   "kind": "seminar",
+   "date": "2026-09-25",
+   "title": "Η Κρήτη στη Θερμήσια Αργολίδας",
+   "title_en": "Crete in Thermisia, Argolida",
+   "when": "Σάββατο 17 & Σάββατο 31 Οκτωβρίου · 16:00 – 19:00",
+   "when_en": "Saturday 17 & Saturday 31 October · 16:00 – 19:00",
+   "place": "Χορευτική Ομάδα Θερμησίας «η Ευαγγελίστρια»",
+   "place_en": "Thermisia dance group «i Evangelistria»",
+   "text": "Κύκλος σεμιναρίων κρητικών χορών με τον Γιάννη Μεγαλακάκη, διδακτική-χορευτική περίοδος 2026 – 2027. «Η παράδοση μας ενώνει, ο χορός μας ταξιδεύει…»",
+   "text_en": "A cycle of Cretan dance seminars with Giannis Megalakakis, teaching season 2026 – 2027. «Tradition unites us, dance takes us travelling…»",
+   "img": "assets/img/megalakakis-nea-seminaria-thermisia-argolidas-1000.webp",
+   "phone": "6971 676768",
+   "link": "",
+   "link_label": ""
+  },
+  {
+   "id": "n2",
+   "kind": "lessons",
+   "date": "2026-09-14",
+   "title": "Οι χοροί της Κρήτης στη Νέα Αρτάκη",
+   "title_en": "The dances of Crete in Nea Artaki",
+   "when": "Δευτέρα 14 Σεπτεμβρίου 2026 · 19:00",
+   "when_en": "Monday 14 September 2026 · 19:00",
+   "place": "Δημαρχείο Νέας Αρτάκης · Εργαστήρι Πολιτισμού Νέας Αρτάκης «Παναγία Φανερωμένη»",
+   "place_en": "Nea Artaki Town Hall · Nea Artaki Culture Workshop «Panagia Faneromeni»",
+   "text": "Πρώτη συνάντηση – γνωριμία με τον Γιάννη Μεγαλακάκη. Διδασκαλία – μύηση σε χορούς από όλες τις επαρχίες της Κρήτης, για όλες τις ηλικίες και για όλα τα χορευτικά επίπεδα. Μύηση στην κρητική μουσική και στον χορευτικό αυτοσχεδιασμό.",
+   "text_en": "A first meeting with Giannis Megalakakis. Teaching and initiation in dances from every province of Crete, for all ages and all dance levels. An introduction to Cretan music and to dance improvisation.",
+   "img": "assets/img/megalakakis-nea-xoroi-tis-kritis-nea-artaki-1000.webp",
+   "phone": "6987 559254",
+   "link": "",
+   "link_label": ""
+  },
+  {
+   "id": "n1",
+   "kind": "lessons",
+   "date": "2026-09-10",
+   "title": "«Δίκταμος» Νέας Ιωνίας: ανοιχτό μάθημα για όλους",
+   "title_en": "«Diktamos», Nea Ionia: an open lesson for everyone",
+   "when": "Πέμπτη 24 Σεπτεμβρίου 2026 · 19:00",
+   "when_en": "Thursday 24 September 2026 · 19:00",
+   "place": "Αιμιλιανού Γρεβενών 39, Περισσός – Νέα Ιωνία",
+   "place_en": "Aimilianou Grevenon 39, Perissos – Nea Ionia",
+   "text": "Σύλλογος Κρητών & Φίλων Κρήτης Νέας Ιωνίας «Δίκταμος». Έναρξη διδασκαλίας – μύησης στους χορούς της Κρήτης για τη διδακτική-χορευτική περίοδο 2026 – 2027. Διδάσκει ο Γιάννης Μεγαλακάκης. «Η παράδοση ζει όταν τη μοιραζόμαστε.»",
+   "text_en": "Association of Cretans & Friends of Crete of Nea Ionia «Diktamos». Classes in the dances of Crete begin for the 2026 – 2027 season. Taught by Giannis Megalakakis. «Tradition lives when we share it.»",
+   "img": "assets/img/megalakakis-nea-diktamos-nea-ionia-anoixto-mathima-1000.webp",
+   "phone": "6947 979447",
+   "link": "",
+   "link_label": ""
+  }
+ ],
+ "lessons": {
+  "season": "2025 – 2026",
+  "season_en": "2025 – 2026",
+  "items": [
+   {
+    "id": "l1",
+    "area": "Αγία Παρασκευή",
+    "area_en": "Agia Paraskevi",
+    "day": "Κάθε Κυριακή",
+    "day_en": "Every Sunday",
+    "time": "17:00 – 20:30",
+    "teacher": "Γιώργος Μεγαλακάκης",
+    "teacher_en": "Giorgos Megalakakis",
+    "club": "Σύλλογος Κρητών και Φίλων Κρήτης Αγίας Παρασκευής",
+    "club_en": "Association of Cretans and Friends of Crete of Agia Paraskevi",
+    "address": "Αίθουσα γυμναστικής του Αθλητικού Κέντρου Αγίου Ιωάννου, Αιγαίου Πελάγους & Νότου",
+    "address_en": "Gym hall of the Agios Ioannis Sports Centre, Aigaiou Pelagous & Notou",
+    "phone": "6978 311870"
+   },
+   {
+    "id": "l2",
+    "area": "Νέα Ιωνία",
+    "area_en": "Nea Ionia",
+    "day": "Κάθε Πέμπτη",
+    "day_en": "Every Thursday",
+    "time": "18:00 – 21:30",
+    "teacher": "Γιάννης Μεγαλακάκης",
+    "teacher_en": "Giannis Megalakakis",
+    "club": "Σύλλογος Κρητών & Φίλων Κρήτης Νέας Ιωνίας «Δίκταμος»",
+    "club_en": "Association of Cretans & Friends of Crete of Nea Ionia «Diktamos»",
+    "address": "Αιμιλιανού Γρεβενών 39, Περισσός – Νέα Ιωνία",
+    "address_en": "Aimilianou Grevenon 39, Perissos – Nea Ionia",
+    "phone": "6947 979447"
+   },
+   {
+    "id": "l3",
+    "area": "Ραφήνα",
+    "area_en": "Rafina",
+    "day": "Κάθε Παρασκευή",
+    "day_en": "Every Friday",
+    "time": "18:00 – 21:00",
+    "teacher": "Γιάννης Μεγαλακάκης",
+    "teacher_en": "Giannis Megalakakis",
+    "club": "Σύλλογος Κρητών Ραφήνας – Πικερμίου",
+    "club_en": "Association of Cretans of Rafina – Pikermi",
+    "address": "Άνδρου (Οχυρό), Ραφήνα 190 09",
+    "address_en": "Androu (Ochyro), Rafina 190 09",
+    "phone": "6945 396738"
+   },
+   {
+    "id": "l4",
+    "area": "Άγιος Δημήτριος",
+    "area_en": "Agios Dimitrios",
+    "day": "Κάθε Τετάρτη",
+    "day_en": "Every Wednesday",
+    "time": "19:00 – 21:30",
+    "teacher": "Γιάννης Μεγαλακάκης",
+    "teacher_en": "Giannis Megalakakis",
+    "club": "Πολυχώρος Arbo",
+    "club_en": "Arbo multi-space",
+    "address": "Αντιόπης 31, 1ος όροφος, Άγιος Δημήτριος · στάση μετρό Δάφνη",
+    "address_en": "Antiopis 31, 1st floor, Agios Dimitrios · Dafni metro stop",
+    "phone": "697 187 0962"
+   }
+  ]
+ },
+ "shows": [
+  {
+   "id": "s01",
+   "year": "2018",
+   "title": "Δεν ήταν νησί, ήταν η αδερφή του Μέγα Αλέξανδρου",
+   "title_en": "It wasn’t an island, it was the sister of Alexander the Great",
+   "text": "Εμπνεόμενοι από τους στίχους του Νίκου Καζαντζάκη τους οποίους μελοποίησε ο Μάνος Χατζιδάκις, σαν ένα ανοιχτό παράθυρο επικοινωνίας του παρελθόντος με το μέλλον, τα δύο αδέλφια απ’ την Κρήτη και δεξιοτέχνες χορευτές Γιάννης & Γιώργος Μεγαλακάκης με μία ομάδα επίλεκτων χορευτών και μουσικών, ενώνονται, δημιουργούν και συμπράττουν με μουσικούς και χορευτές της Ακαδημίας Ελληνικών Παραδοσιακών Χορών Λυγκηστές.",
+   "text_en": "Inspired by the verses of Nikos Kazantzakis set to music by Manos Hadjidakis — an open window between past and future — the two brothers from Crete and master dancers Giannis & Giorgos Megalakakis, with a group of select dancers and musicians, join forces with the musicians and dancers of the Lygkistes Academy of Greek Traditional Dances.",
+   "img": "assets/img/megalakakis-afisa-kriti-makedonia-2018-842.webp"
+  },
+  {
+   "id": "s02",
+   "year": "2018",
+   "title": "Δεν ελπίζω τίποτα, δεν φοβούμαι τίποτα, είμαι λέφτερος",
+   "title_en": "I hope for nothing, I fear nothing, I am free",
+   "text": "Μία σπάνια παράσταση κρητικών χορών αφιερωμένη στη Μάχη της Κρήτης από την Ομάδα Έκφρασης Κρητικών Χορών Γιάννη και Γιώργου Μεγαλακάκη. Η επαναστατική φράση του Νίκου Καζαντζάκη μετουσιώνεται σε μία σπάνια παράσταση κρητικών χορών. Οι TIMES του Λονδίνου τόνιζαν: «Η Μάχη της Κρήτης υπήρξε το συναρπαστικότερο γεγονός του Β’ Παγκοσμίου Πολέμου και η αποθέωση του ανθρώπινου ηρωισμού».",
+   "text_en": "A rare performance of Cretan dances dedicated to the Battle of Crete by the Cretan Dance Expression Group of Giannis and Giorgos Megalakakis. Nikos Kazantzakis’ revolutionary phrase becomes a rare dance performance. As The Times of London put it: «The Battle of Crete was the most thrilling event of the Second World War and the apotheosis of human heroism».",
+   "img": "assets/img/megalakakis-afisa-den-elpizo-tipota-2018-833.webp"
+  },
+  {
+   "id": "s03",
+   "year": "2018",
+   "title": "Όταν ακούω Κρήτη · Σφίγγα",
+   "title_en": "When I hear Crete · Sfigga",
+   "text": "Μία σπάνια παράσταση κρητικών χορών στη Σφίγγα, τις Πέμπτες 1, 8 και 15 Μαρτίου. Οι Γιάννης και Γιώργος Μεγαλακάκης γιορτάζουν τα 20 χρόνια δράσης της χορευτικής τους ομάδας και παρουσιάζουν ένα θέαμα που συνδυάζει την κρητική παραδοσιακή μουσική και τον χορό με την κινηματογραφική εικόνα, αντιμετωπίζει με κριτική διάθεση το φολκλόρ και αναζητά με χιούμορ, σκεπτικισμό αλλά και αγάπη, τους λόγους που ακόμα και σήμερα κάποια στοιχεία αυτής της παράδοσης μας συγκινούν.",
+   "text_en": "A rare performance of Cretan dances at Sfigga, on Thursdays 1, 8 and 15 March. Giannis and Giorgos Megalakakis celebrate 20 years of their dance group with a show that brings together Cretan traditional music and dance with film, looks critically at folklore and searches — with humour, scepticism and love — for the reasons some parts of this tradition still move us today.",
+   "img": "assets/img/megalakakis-afisa-otan-akouo-kriti-sfigga-842.webp"
+  },
+  {
+   "id": "s04",
+   "year": "2017",
+   "title": "Αγάπα τον άνθρωπο γιατί είσαι εσύ",
+   "title_en": "Love man, for he is you",
+   "text": "Η Κρήτη & ο Πόντος ανταμώνουν στο Θέατρο Βράχων σε μία εντυπωσιακή μουσικοχορευτική παράσταση. Ομάδα Έκφρασης Κρητικών Χορών Γιάννη & Γιώργου Μεγαλακάκη και Πολιτιστικός Οργανισμός «Πυρρίχιος Ακαδημία». Φεστιβάλ Βύρωνα 2017, Θέατρο Βράχων «Μελίνα Μερκούρη».",
+   "text_en": "Crete and Pontus meet at the Rock Theatre in an impressive music and dance performance. The Cretan Dance Expression Group of Giannis & Giorgos Megalakakis with the cultural organisation «Pyrrichios Akadimia». Vyronas Festival 2017, «Melina Merkouri» Rock Theatre.",
+   "img": "assets/img/megalakakis-afisa-kriti-pontos-2017-560.webp"
+  },
+  {
+   "id": "s05",
+   "year": "2016",
+   "title": "Λαβύρινθος, από το σκοτάδι στο φως",
+   "title_en": "Labyrinth, from darkness to light",
+   "text": "Μια χοροθεατρική παράσταση στο θέατρο Παλλάς στην Αθήνα. Για πρώτη φορά στην Ελλάδα ο κρητικός χορός αντάμωσε επί σκηνής με τον σύγχρονο χορό. Επίλεκτοι χορευτές της Ομάδας των αδερφών Μεγαλακάκη σύμπραξαν με την ομάδα σύγχρονου χορού του χορογράφου – σκηνοθέτη Παύλου Κουρτίδη. Σκηνοθεσία: Παύλος Κουρτίδης. Έπαιξαν οι μουσικοί: Γιώργος Κοντογιάννης, Δημήτρης Βαρελόπουλος, Ανδρέας Αρβανίτης, Μαρίνος Τρανουδάκης και Βασίλης Τσεντούρος.",
+   "text_en": "A dance-theatre performance at the Pallas theatre in Athens. For the first time in Greece, Cretan dance met contemporary dance on stage. Select dancers of the Megalakakis brothers’ group joined the contemporary dance company of choreographer-director Pavlos Kourtidis. Directed by Pavlos Kourtidis. Musicians: Giorgos Kontogiannis, Dimitris Varelopoulos, Andreas Arvanitis, Marinos Tranoudakis and Vasilis Tsentouros.",
+   "img": "assets/img/megalakakis-afisa-lavyrinthos-2016-900.webp"
+  },
+  {
+   "id": "s06",
+   "year": "2016",
+   "title": "Κρήτη μου",
+   "title_en": "Kriti mou (My Crete)",
+   "text": "Μία μουσικοχορευτική παράσταση στη μουσική σκηνή Half Note. Ο Γιάννης και ο Γιώργος Μεγαλακάκης και οι επίλεκτοι χορευτές τους παρουσίασαν κρητικούς χορούς σε μία διάσημη σκηνή της Αθήνας για πρώτη φορά στην ιστορία του ελληνικού χορού. Μαζί τους ήταν οι μουσικοί Γιώργος Κοντογιάννης και Δημήτρης Βαρελόπουλος.",
+   "text_en": "A music and dance performance at the Half Note music stage. Giannis and Giorgos Megalakakis and their select dancers presented Cretan dances on one of Athens’ famous stages for the first time in the history of Greek dance. With musicians Giorgos Kontogiannis and Dimitris Varelopoulos.",
+   "img": "assets/img/megalakakis-afisa-kriti-mou-half-note-2016-900.webp"
+  },
+  {
+   "id": "s07",
+   "year": "2015",
+   "title": "Ο λόγος του Νίκου Καζαντζάκη εν χορώ & οργάνοις",
+   "title_en": "The word of Nikos Kazantzakis in dance & music",
+   "text": "Μια χοροθεατρική παράσταση στο Ίδρυμα Μιχάλης Κακογιάννης στην Αθήνα. Επίλεκτοι χορευτές της Ομάδας των αδερφών Μεγαλακάκη σύμπραξαν επί σκηνής με τον ηθοποιό Βασίλη Βασιλάκη και με τους μουσικούς Γιώργο Κοντογιάννη, Δημήτρη Βαρελόπουλο, Αλέξανδρο Καψοκαβάδη και Βαγγέλη Καρύπη. Σκηνοθεσία & ερμηνεία: Βασίλης Βασιλάκης. Συμμετείχαν φιλικά οι Γεωργία Νταγάκη και Καλλιόπη Βέττα.",
+   "text_en": "A dance-theatre performance at the Michael Cacoyannis Foundation in Athens. Select dancers of the Megalakakis brothers’ group shared the stage with actor Vasilis Vasilakis and musicians Giorgos Kontogiannis, Dimitris Varelopoulos, Alexandros Kapsokavadis and Vangelis Karypis. Directed and performed by Vasilis Vasilakis. Guest appearances by Georgia Ntagaki and Kalliopi Vetta.",
+   "img": "assets/img/megalakakis-afisa-logos-kazantzaki-2015-900.webp"
+  },
+  {
+   "id": "s08",
+   "year": "2015",
+   "title": "Η μουσική είναι μία",
+   "title_en": "Music is one",
+   "text": "Μία μουσικοχορευτική παράσταση στη μουσική σκηνή HolyWood στην Αθήνα. Σε μία σειρά εμφανίσεων ο Γιάννης και ο Γιώργος Μεγαλακάκης και οι επίλεκτοι χορευτές τους παρουσίασαν κρητικούς χορούς και σύμπραξαν επί σκηνής με την ερμηνεύτρια και μουσικό Αρετή Κετιμέ, την ερμηνεύτρια Μαρία Αναματερού, τον κιθαρίστα Χρίστο Τζιφάκη και τον πόντιο λυράρη Ηλία Υφαντή. Μαζί τους ήταν οι μουσικοί Γιώργος Κοντογιάννης και Δημήτρης Βαρελόπουλος.",
+   "text_en": "A music and dance performance at the HolyWood stage in Athens. In a series of shows Giannis and Giorgos Megalakakis and their select dancers presented Cretan dances alongside singer and musician Areti Ketime, singer Maria Anamaterou, guitarist Christos Tzifakis and Pontic lyra player Ilias Yfantis. With musicians Giorgos Kontogiannis and Dimitris Varelopoulos.",
+   "img": "assets/img/megalakakis-afisa-i-mousiki-einai-mia-2015-827.webp"
+  },
+  {
+   "id": "s09",
+   "year": "2014",
+   "title": "Την άνοιξη στην Κρήτη",
+   "title_en": "Springtime in Crete",
+   "text": "Μία μουσικοχορευτική παράσταση με θέμα την άνοιξη στο θέατρο ΠΚ στην Αθήνα, στην οποία επίλεκτοι χορευτές της Ομάδας των αδερφών Μεγαλακάκη σύμπραξαν με τη νέα ερμηνεύτρια και τραγουδοποιό Μαρία Αναματερού, τον λυράρη Γιώργο Κοντογιάννη και τον μουσικό Δημήτρη Βαρελόπουλο.",
+   "text_en": "A spring-themed music and dance performance at the PK theatre in Athens, where select dancers of the Megalakakis brothers’ group performed with young singer-songwriter Maria Anamaterou, lyra player Giorgos Kontogiannis and musician Dimitris Varelopoulos.",
+   "img": "assets/img/megalakakis-afisa-anoixi-stin-kriti-2014-900.webp"
+  },
+  {
+   "id": "s10",
+   "year": "2013",
+   "title": "Οι Χοροί της Κρήτης",
+   "title_en": "The Dances of Crete",
+   "text": "Μία σπάνια μουσικοχορευτική παράσταση στο θέατρο Badminton στην Αθήνα μαζί με τον Ψαραντώνη και την πολυμελή χορευτική τους Ομάδα.",
+   "text_en": "A rare music and dance performance at the Badminton theatre in Athens with Psarantonis and their large dance group.",
+   "img": "assets/img/megalakakis-afisa-xoroi-tis-kritis-psarantonis-2013-900.webp"
+  },
+  {
+   "id": "s11",
+   "year": "2013",
+   "title": "Όσα ταξίδια",
+   "title_en": "So many journeys",
+   "text": "Μία μουσικοχορευτική παράσταση με τους Στέλιο Σταματογιαννάκη, Κώστα Κακουδάκη, Ηλία Σαββάκη και άλλους στο θέατρο Κρεμαστός στον Εμπρόσνερο Αποκορώνου στα Χανιά και στο κηποθέατρο Μάνος Χατζιδάκης στο Ηράκλειο.",
+   "text_en": "A music and dance performance with Stelios Stamatogiannakis, Kostas Kakoudakis, Ilias Savvakis and others at the Kremastos theatre in Embrosneros, Apokoronas (Chania) and at the Manos Hadjidakis garden theatre in Heraklion.",
+   "img": ""
+  },
+  {
+   "id": "s12",
+   "year": "2013",
+   "title": "Ανάμεσα σε δυο ποτάμια",
+   "title_en": "Between two rivers",
+   "text": "Μουσικοχορευτική παράσταση με φλαμένκο και κρητική μουσική και χορούς στο Φεστιβάλ Υακίνθεια στα Ανώγεια. Ο σημαντικός ισπανός χορευτής φλαμένκο Oscar De Los Reyes, μαζί με τη χορεύτρια Ελένη Παπαδοπούλου, συνέπραξε χορευτικά με τους Γιάννη και Γιώργο Μεγαλακάκη. Μαζί τους ήταν ο σπουδαίος κιθαρίστας – συνθέτης Χρήστος Τζιφάκης. Συμμετείχαν: Όθωνας Μπικάκης λύρα, Μιχάλης Σταυρουλάκης και άλλοι.",
+   "text_en": "A music and dance performance with flamenco and Cretan music and dances at the Yakinthia Festival in Anogeia. Leading Spanish flamenco dancer Oscar De Los Reyes, with dancer Eleni Papadopoulou, danced together with Giannis and Giorgos Megalakakis, joined by guitarist and composer Christos Tzifakis. With Othonas Bikakis (lyra), Michalis Stavroulakis and others.",
+   "img": ""
+  },
+  {
+   "id": "s13",
+   "year": "2012",
+   "title": "Χορεύω αιώνες στην Κρήτη",
+   "title_en": "I dance centuries in Crete",
+   "text": "Μουσικοχορευτική παράσταση με τον Όθωνα Μπικάκη και τους μουσικούς του στο θέατρο Παπαδημητρίου στη Χαλκίδα.",
+   "text_en": "A music and dance performance with Othonas Bikakis and his musicians at the Papadimitriou theatre in Chalkida.",
+   "img": ""
+  },
+  {
+   "id": "s14",
+   "year": "2012",
+   "title": "Φτάσε όπου δεν μπορείς",
+   "title_en": "Reach where you cannot",
+   "text": "Στο θέατρο ΠΚ στην Αθήνα, στο θέατρο Δόρα Στράτου και στο θέατρο Άλσους Βεΐκου, όπου επίλεκτοι χορευτές της Ομάδας των αδερφών Μεγαλακάκη σύμπραξαν με δημοφιλείς στο είδος τους μουσικούς και χορευτές από διάφορες περιοχές της Ελλάδας και με τον Χορευτικό Όμιλο Ποντίων Σέρρας. Τους συνόδευσαν οι Όθωνας Μπικάκης, Νίκος Βενετάκης και Ανδρέας Φασάκης.",
+   "text_en": "At the PK theatre in Athens, the Dora Stratou theatre and the Veikou Grove theatre, where select dancers of the Megalakakis brothers’ group performed with well-known musicians and dancers from various parts of Greece and with the Serra Pontic Dance Club. Accompanied by Othonas Bikakis, Nikos Venetakis and Andreas Fasakis.",
+   "img": ""
+  },
+  {
+   "id": "s15",
+   "year": "2011",
+   "title": "Αν έχει η Κρήτη δυο ψυχές",
+   "title_en": "If Crete has two souls",
+   "text": "Μουσικοχορευτική παράσταση με τον Βασίλη Σκουλά στον πολυχώρο Δαίς στην Αθήνα.",
+   "text_en": "A music and dance performance with Vasilis Skoulas at the Dais venue in Athens.",
+   "img": ""
+  },
+  {
+   "id": "s16",
+   "year": "2010",
+   "title": "Το νησί που χορεύει",
+   "title_en": "The island that dances",
+   "text": "Παράσταση ιδιαίτερη. Ένας μουσικοχορευτικός διάλογος με τον Πάρι Περυσινάκη και τους μουσικούς του στη μουσική σκηνή Αυλαία στην Αθήνα.",
+   "text_en": "A special performance: a music and dance dialogue with Paris Perysinakis and his musicians at the Avlaia stage in Athens.",
+   "img": ""
+  },
+  {
+   "id": "s17",
+   "year": "2010",
+   "title": "Ένα ταξίδι στην καρδιά της κρητικής παράδοσης",
+   "title_en": "A journey to the heart of Cretan tradition",
+   "text": "Μουσικοχορευτική παράσταση στο θέατρο Nouveau Théâtre de la Sorbonne στο Παρίσι. Μουσικοί της παράστασης ήταν ο Άρης Πρεβεζάνος και ο Έκτορας Κυριάκου.",
+   "text_en": "A music and dance performance at the Nouveau Théâtre de la Sorbonne in Paris, with musicians Aris Prevezanos and Ektoras Kyriakou.",
+   "img": ""
+  },
+  {
+   "id": "s18",
+   "year": "2010",
+   "title": "Χορεύω αιώνες στην Κρήτη",
+   "title_en": "I dance centuries in Crete",
+   "text": "Με τον Γιώργο Σκορδαλό και τους μουσικούς του στο Πνευματικό Κέντρο Καλαμάτας. Και σπάνια μουσικοχορευτική παράσταση στο Φεστιβάλ Υακίνθεια στα Ανώγεια με τη μουσική συνοδεία του Κώστα Σαριδάκη και των μουσικών του.",
+   "text_en": "With Giorgos Skordalos and his musicians at the Kalamata Cultural Centre; and a rare performance at the Yakinthia Festival in Anogeia with Kostas Saridakis and his musicians.",
+   "img": ""
+  },
+  {
+   "id": "s19",
+   "year": "2009",
+   "title": "Κρητικός χορός, η φωνή του σώματος",
+   "title_en": "Cretan dance, the voice of the body",
+   "text": "Παράσταση χορευτικών αυτοσχεδιασμών στη μουσική σκηνή Αυλαία στην Αθήνα. Μουσικοί της παράστασης ήταν ο Άρης Πρεβεζάνος και ο Έκτορας Κυριάκου. Και «Όταν ακούω Κρήτη» με τον Γιώργο Σκορδαλό και τους μουσικούς του στο θέατρο Θανάσης Βέγγος στον Κορυδαλλό.",
+   "text_en": "A performance of dance improvisations at the Avlaia stage in Athens with musicians Aris Prevezanos and Ektoras Kyriakou; and «When I hear Crete» with Giorgos Skordalos and his musicians at the Thanasis Vengos theatre in Korydallos.",
+   "img": ""
+  },
+  {
+   "id": "s20",
+   "year": "2008",
+   "title": "Παράσταση στο θέατρο Βράχων · Αντάμωση στο Κάστρο",
+   "title_en": "Rock Theatre · Meeting at the Castle",
+   "text": "Παράσταση χορού και μουσικής με τους Γιάννη Ξυλούρη, Γιώργη Ξυλούρη (Ψαρογιώργη), Ψαραντώνη, Μάνο Πυροβολάκη κ.ά. στο θέατρο Βράχων στην Αθήνα. «Αντάμωση στο Κάστρο»: μουσικοχορευτική παράσταση με τους Γιώργο Χαλκιαδάκη και Γιώργο Μανωλιούδη στο θέατρο Ερωφίλη στο κάστρο Φορτέτσα στο Ρέθυμνο.",
+   "text_en": "A dance and music performance with Giannis Xylouris, Giorgis Xylouris (Psarogiorgis), Psarantonis, Manos Pyrovolakis and others at the Rock Theatre in Athens. «Meeting at the Castle»: with Giorgos Chalkiadakis and Giorgos Manolioudis at the Erofili theatre in the Fortezza castle, Rethymno.",
+   "img": ""
+  },
+  {
+   "id": "s21",
+   "year": "2007",
+   "title": "Αναφορά στην Κρήτη · Για ιδές περβόλι όμορφο · Η Κρήτη των ονείρων",
+   "title_en": "Report to Crete · Behold a lovely garden · The Crete of dreams",
+   "text": "«Αναφορά στην Κρήτη» με τον Βασίλη Σκουλά στο θέατρο Παπάγου στην Αθήνα. «Για ιδές περβόλι όμορφο» με τον Βασίλη Σταυρακάκη στο κηποθέατρο Ν. Καζαντζάκης στο Ηράκλειο. «Η Κρήτη των ονείρων» με τους Γιάννη Ξυλούρη, Γιώργη Ξυλούρη (Ψαρογιώργη) κ.ά. στο Κέντρο Τεχνών Χαλανδρίου, με φιλική συμμετοχή του Μάνου Πυροβολάκη. Και σπάνια μουσικοχορευτική παράσταση στο Φεστιβάλ Υακίνθεια στα Ανώγεια με τη μουσική συνοδεία του Πέτρου Σαριδάκη.",
+   "text_en": "«Report to Crete» with Vasilis Skoulas at the Papagou theatre in Athens. «Behold a lovely garden» with Vasilis Stavrakakis at the N. Kazantzakis garden theatre in Heraklion. «The Crete of dreams» with Giannis Xylouris, Giorgis Xylouris (Psarogiorgis) and others at the Chalandri Arts Centre, with a guest appearance by Manos Pyrovolakis. And a rare performance at the Yakinthia Festival in Anogeia with Petros Saridakis.",
+   "img": ""
+  },
+  {
+   "id": "s22",
+   "year": "2006",
+   "title": "Όταν ακούω Κρήτη · Για ιδές περβόλι όμορφο",
+   "title_en": "When I hear Crete · Behold a lovely garden",
+   "text": "«Για ιδές περβόλι όμορφο» με τον Πέτρο Σαριδάκη και άλλους στο θέατρο ελληνικών χορών Δόρα Στράτου (φιλική συμμετοχή: Νίκος Ανδρουλάκης, Ζαχαρίας Σπυριδάκης, Γιώργος Ξυλούρης – Ψαρογιώργης και η ηθοποιός Γιούλη Τσαγκαράκη). «Όταν ακούω Κρήτη» με τους Πέτρο Σαριδάκη, Αντώνη Μαρτσάκη κ.ά. στο θέατρο του Υακίνθου στα Ανώγεια, στην Πλατεία Ελευθερίας στο Ηράκλειο και στο θέατρο Rialto στη Λεμεσό της Κύπρου.",
+   "text_en": "«Behold a lovely garden» with Petros Saridakis and others at the Dora Stratou Greek dance theatre (guests: Nikos Androulakis, Zacharias Spyridakis, Giorgos Xylouris – Psarogiorgis and actress Giouli Tsagkaraki). «When I hear Crete» with Petros Saridakis, Antonis Martsakis and others at the Yakinthos theatre in Anogeia, Eleftherias Square in Heraklion and the Rialto theatre in Limassol, Cyprus.",
+   "img": ""
+  },
+  {
+   "id": "s23",
+   "year": "2005",
+   "title": "Όταν ακούω Κρήτη",
+   "title_en": "When I hear Crete",
+   "text": "Με τους Πέτρο Σαριδάκη, Αντώνη Μαρτσάκη, Αλέξανδρο Παπαδάκη κ.ά. στο Νέο Μουσείο Μπενάκη στην Αθήνα, και με τον Δημήτρη Βακάκη κ.ά. στο θέατρο της Ανατολικής Τάφρου στα Χανιά.",
+   "text_en": "With Petros Saridakis, Antonis Martsakis, Alexandros Papadakis and others at the New Benaki Museum in Athens, and with Dimitris Vakakis and others at the Eastern Moat theatre in Chania.",
+   "img": ""
+  },
+  {
+   "id": "s24",
+   "year": "2004",
+   "title": "Ο χορός στην Κρήτη",
+   "title_en": "Dance in Crete",
+   "text": "Με τους Αντώνη Μαρτσάκη, Γιώργο Στριλιγκά, Αλέξανδρο Παπαδάκη κ.ά. στο θέατρο Κνωσός στην Αθήνα. Αφήγηση κειμένων: ο ηθοποιός Γιάννης Δρίτσας.",
+   "text_en": "With Antonis Martsakis, Giorgos Striligkas, Alexandros Papadakis and others at the Knossos theatre in Athens. Narration by actor Giannis Dritsas.",
+   "img": ""
+  },
+  {
+   "id": "s25",
+   "year": "2003",
+   "title": "Άρωμα Κρήτης",
+   "title_en": "Scent of Crete",
+   "text": "Με τον Δημήτρη Σγουρό στο κάστρο Καζάρμα στη Σητεία.",
+   "text_en": "With Dimitris Sgouros at the Kazarma castle in Sitia.",
+   "img": ""
+  },
+  {
+   "id": "s26",
+   "year": "2000",
+   "title": "Σεργιάνισμα στην Κρήτη",
+   "title_en": "A stroll through Crete",
+   "text": "Με το μουσικό σύνολο Παλαιϊνά Σεφέρια στο θέατρο Μινώα στην Αθήνα.",
+   "text_en": "With the music ensemble Palaiina Seferia at the Minoa theatre in Athens.",
+   "img": ""
+  },
+  {
+   "id": "s27",
+   "year": "1998",
+   "title": "Σεργιάνισμα στην Κρήτη",
+   "title_en": "A stroll through Crete",
+   "text": "Με τον Μιχάλη Τζουγανάκη στο θέατρο Μινώα στην Αθήνα.",
+   "text_en": "With Michalis Tzouganakis at the Minoa theatre in Athens.",
+   "img": ""
+  }
+ ],
+ "contact": {
+  "name": "Γιάννης Μεγαλακάκης",
+  "phone": "697 187 0962",
+  "email": "gmegal@hotmail.com",
+  "viber": true,
+  "whatsapp": true,
+  "facebook": "",
+  "instagram": "",
+  "youtube": "",
+  "name_en": "Giannis Megalakakis"
+ }
+}

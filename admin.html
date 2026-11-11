@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Πάνελ διαχείρισης · Μεγαλακάκης</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#F5EFE4">
+<link rel="icon" href="favicon.ico">
+<style id="advon-fonts">
+@font-face{font-family:'GFS Didot';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/gfs-didot-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'GFS Didot';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/gfs-didot-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/commissioner-greek-400-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/commissioner-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/commissioner-greek-600-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:'Commissioner';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/commissioner-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
+<style>
+:root{--paper:#F5EFE4;--card:#FFFDF8;--ink:#1B1611;--ink2:#5A4E40;--gold:#C9A35C;--goldd:#83602A;--line:#E3D8C4;--red:#B3261E;--green:#2E7D4F;--sh:0 1px 2px rgba(20,14,8,.06),0 8px 24px rgba(20,14,8,.08);color-scheme:light only}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.5 'Commissioner',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:150px}
+h1,h2,h3{font-family:'GFS Didot',Georgia,serif;font-weight:400;margin:0}
+button,input,textarea,select{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.top{position:sticky;top:0;z-index:20;background:rgba(245,239,228,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:12px;min-height:64px}
+.top svg{width:44px;height:29px;color:var(--gold);flex:none}
+.top h1{font-size:21px;line-height:1.1}
+.top small{display:block;font:400 12.5px/1.2 'Commissioner',sans-serif;color:var(--ink2)}
+.top .help{margin-left:auto;min-width:48px;height:48px;border-radius:24px;border:1px solid var(--line);background:var(--card);font-weight:600;color:var(--goldd);text-decoration:none;display:grid;place-items:center;padding:0 14px}
+.demo{background:#FFF1C9;border:1px solid #F2D27A;color:#5A4300;border-radius:14px;padding:12px 14px;margin:14px 0;font-size:15px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:12px 0 4px;scrollbar-width:none}
+.tabs button{flex:none;min-height:48px;padding:0 18px;border-radius:24px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:600;color:var(--ink2)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pane{display:none;padding:14px 0}
+.pane.on{display:block}
+.intro{color:var(--ink2);font-size:15.5px;margin:4px 0 14px}
+.add{width:100%;min-height:60px;border-radius:16px;border:2px dashed var(--gold);background:#FFF9EC;color:var(--goldd);font-weight:700;font-size:17px;cursor:pointer;margin:6px 0 16px}
+.item{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;margin-bottom:10px;box-shadow:var(--sh)}
+.item .th{width:64px;height:64px;border-radius:10px;background:#EFE6D5 center/cover no-repeat;flex:none}
+.item .tx{flex:1;min-width:0}
+.item b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item span{display:block;font-size:14px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .acts{display:flex;gap:6px;flex:none}
+.ib{width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;font-size:18px}
+.ib svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ib.del{color:var(--red)}
+.year{font:400 26px/1 'GFS Didot',serif;color:var(--goldd);margin:18px 0 8px}
+/* editor */
+.ed{position:fixed;inset:0;z-index:50;background:var(--paper);overflow-y:auto;display:none}
+.ed.on{display:block}
+.ed .bar{position:sticky;top:0;z-index:2;background:rgba(245,239,228,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.ed .bar .wrap{display:flex;align-items:center;gap:10px;min-height:64px}
+.ed .bar h2{font-size:22px;flex:1}
+.f{margin:16px 0}
+.f label{display:block;font-weight:600;margin-bottom:6px}
+.f .hint{display:block;font-size:14px;color:var(--ink2);margin:-2px 0 8px;font-weight:400}
+.f input[type=text],.f input[type=tel],.f input[type=email],.f input[type=url],.f input[type=date],.f input[type=password],.f textarea,.f select{width:100%;min-height:52px;padding:12px 14px;border-radius:12px;border:1px solid #D7CBB5;background:#fff;font-size:17px}
+.f textarea{min-height:130px;resize:vertical;line-height:1.5}
+.f input:focus,.f textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:46px;padding:0 16px;border-radius:23px;border:1px solid #D7CBB5;background:#fff;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#1A120A;font-weight:600}
+.photo{border:2px dashed #D7CBB5;border-radius:16px;background:#fff;padding:14px;text-align:center}
+.photo img{max-width:100%;max-height:340px;margin:0 auto 10px;border-radius:10px;display:block}
+.photo .pick{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;border-radius:26px;background:var(--ink);color:#fff;font-weight:600;cursor:pointer}
+.photo input{position:absolute;left:-999px}
+.photo .rm{display:block;margin:10px auto 0;background:none;border:0;color:var(--red);min-height:44px;cursor:pointer}
+details.more{border-top:1px solid var(--line);margin-top:22px;padding-top:6px}
+details.more summary{min-height:52px;display:flex;align-items:center;font-weight:600;color:var(--goldd);cursor:pointer}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+.btn{min-height:54px;padding:0 22px;border-radius:27px;border:0;cursor:pointer;font-weight:700;font-size:17px}
+.btn-gold{background:linear-gradient(180deg,#D9B56C,#B98F45);color:#1A120A;box-shadow:0 8px 20px rgba(201,163,92,.35)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-line{background:#fff;border:1px solid var(--line);color:var(--ink)}
+.btn-del{background:none;color:var(--red);border:1px solid #F0C9C5;width:100%;margin:22px 0 40px}
+/* publish bar */
+.pub{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,253,248,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 0 calc(10px + env(safe-area-inset-bottom))}
+.pub .wrap{display:grid;grid-template-columns:auto 1fr;gap:8px 10px;align-items:center}
+.pub .st{grid-column:1/-1;font-size:14.5px;color:var(--ink2);line-height:1.3;margin:0}
+.pub #publish{width:100%}
+.pub .st b{color:var(--ink)}
+.pub .st.dirty b{color:#9A5B00}
+.pub .btn-gold[disabled]{opacity:.45;box-shadow:none}
+/* login */
+.login{min-height:100svh;display:grid;place-items:center;padding:24px}
+.login .card{width:100%;max-width:400px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 22px;box-shadow:var(--sh);text-align:center}
+.login svg{width:90px;height:60px;color:var(--gold);margin:0 auto 10px;display:block}
+.login h1{font-size:28px;margin-bottom:6px}
+.login p{color:var(--ink2);margin:0 0 18px}
+.login input{text-align:center;letter-spacing:.2em;font-size:22px}
+.login .err{color:var(--red);min-height:24px;margin:10px 0 0;font-size:15px}
+.toast{position:fixed;left:50%;bottom:170px;transform:translate(-50%,20px);background:var(--ink);color:#fff;border-radius:14px;padding:14px 18px;font-weight:600;z-index:80;opacity:0;transition:opacity .3s,transform .3s;max-width:92vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.toast.ok{background:var(--green)}
+.toast.bad{background:var(--red)}
+.empty{color:var(--ink2);text-align:center;padding:20px}
+.spin{display:inline-block;width:18px;height:18px;border:2px solid rgba(0,0,0,.2);border-top-color:#1A120A;border-radius:50%;animation:sp .8s linear infinite;vertical-align:-3px}
+@keyframes sp{to{transform:rotate(360deg)}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="spiral" viewBox="-4 -4 108 68"><path d="M29.22 26.23 L29.02 26.06 L28.80 25.89 L28.56 25.74 L28.31 25.60 L28.04 25.48 L27.76 25.37 L27.47 25.28 L27.16 25.21 L26.85 25.16 L26.52 25.13 L26.19 25.12 L25.85 25.14 L25.51 25.18 L25.16 25.24 L24.81 25.33 L24.47 25.45 L24.12 25.58 L23.78 25.75 L23.45 25.94 L23.12 26.15 L22.80 26.39 L22.50 26.66 L22.20 26.94 L21.92 27.26 L21.66 27.59 L21.42 27.95 L21.20 28.32 L21.00 28.72 L20.82 29.14 L20.67 29.57 L20.54 30.01 L20.45 30.48 L20.38 30.95 L20.34 31.43 L20.33 31.92 L20.35 32.42 L20.41 32.92 L20.50 33.42 L20.62 33.93 L20.78 34.43 L20.97 34.92 L21.19 35.41 L21.45 35.89 L21.74 36.36 L22.07 36.81 L22.42 37.25 L22.81 37.67 L23.23 38.07 L23.68 38.44 L24.15 38.79 L24.66 39.12 L25.19 39.41 L25.74 39.67 L26.31 39.91 L26.90 40.10 L27.52 40.26 L28.14 40.39 L28.78 40.47 L29.43 40.52 L30.09 40.52 L30.76 40.48 L31.42 40.40 L32.09 40.28 L32.76 40.11 L33.42 39.90 L34.07 39.65 L34.71 39.35 L35.34 39.02 L35.95 38.64 L36.54 38.21 L37.11 37.75 L37.66 37.25 L38.18 36.71 L38.66 36.14 L39.12 35.53 L39.54 34.89 L39.92 34.21 L40.26 33.51 L40.56 32.78 L40.82 32.03 L41.03 31.26 L41.20 30.47 L41.31 29.66 L41.38 28.84 L41.40 28.01 L41.36 27.18 L41.27 26.34 L41.13 25.50 L40.94 24.67 L40.69 23.84 L40.39 23.03 L40.04 22.23 L39.64 21.44 L39.18 20.68 L38.68 19.94 L38.12 19.22 L37.52 18.54 L36.87 17.89 L36.18 17.28 L35.44 16.71 L34.67 16.18 L33.86 15.69 L33.02 15.26 L32.14 14.87 L31.23 14.54 L30.30 14.26 L29.35 14.03 L28.38 13.87 L27.39 13.76 L26.40 13.72 L25.39 13.73 L24.38 13.81 L23.37 13.95 L22.37 14.16 L21.37 14.43 L20.38 14.76 L19.41 15.15 L18.46 15.61 L17.54 16.12 L16.64 16.70 L15.77 17.33 L14.94 18.03 L14.15 18.77 L13.40 19.57 L12.70 20.42 L12.05 21.31 L11.45 22.25 L10.90 23.23 L10.41 24.25 L9.99 25.30 L9.62 26.38 L9.32 27.49 L9.09 28.62 L8.93 29.78 L8.84 30.94 L8.82 32.12 L8.88 33.30 L9.00 34.48 L9.20 35.66 L9.48 36.83 L9.82 37.99 L10.24 39.14 L10.73 40.26 L11.30 41.35 L11.93 42.42 L12.63 43.44 L13.39 44.43 L14.22 45.38 L15.12 46.28 L16.07 47.12 L17.07 47.91 L18.13 48.65 L19.23 49.31 L20.38 49.92 L21.58 50.45 L22.81 50.91 L24.07 51.30 L25.36 51.61 L26.67 51.85 L28.00 52.00 C46.00 52.00 54.00 8.00 72.00 8.00 L73.33 8.15 L74.64 8.39 L75.93 8.70 L77.19 9.09 L78.42 9.55 L79.62 10.08 L80.77 10.69 L81.87 11.35 L82.93 12.09 L83.93 12.88 L84.88 13.72 L85.78 14.62 L86.61 15.57 L87.37 16.56 L88.07 17.58 L88.70 18.65 L89.27 19.74 L89.76 20.86 L90.18 22.01 L90.52 23.17 L90.80 24.34 L91.00 25.52 L91.12 26.70 L91.18 27.88 L91.16 29.06 L91.07 30.22 L90.91 31.38 L90.68 32.51 L90.38 33.62 L90.01 34.70 L89.59 35.75 L89.10 36.77 L88.55 37.75 L87.95 38.69 L87.30 39.58 L86.60 40.43 L85.85 41.23 L85.06 41.97 L84.23 42.67 L83.36 43.30 L82.46 43.88 L81.54 44.39 L80.59 44.85 L79.62 45.24 L78.63 45.57 L77.63 45.84 L76.63 46.05 L75.62 46.19 L74.61 46.27 L73.60 46.28 L72.61 46.24 L71.62 46.13 L70.65 45.97 L69.70 45.74 L68.77 45.46 L67.86 45.13 L66.98 44.74 L66.14 44.31 L65.33 43.82 L64.56 43.29 L63.82 42.72 L63.13 42.11 L62.48 41.46 L61.88 40.78 L61.32 40.06 L60.82 39.32 L60.36 38.56 L59.96 37.77 L59.61 36.97 L59.31 36.16 L59.06 35.33 L58.87 34.50 L58.73 33.66 L58.64 32.82 L58.60 31.99 L58.62 31.16 L58.69 30.34 L58.80 29.53 L58.97 28.74 L59.18 27.97 L59.44 27.22 L59.74 26.49 L60.08 25.79 L60.46 25.11 L60.88 24.47 L61.34 23.86 L61.82 23.29 L62.34 22.75 L62.89 22.25 L63.46 21.79 L64.05 21.36 L64.66 20.98 L65.29 20.65 L65.93 20.35 L66.58 20.10 L67.24 19.89 L67.91 19.72 L68.58 19.60 L69.24 19.52 L69.91 19.48 L70.57 19.48 L71.22 19.53 L71.86 19.61 L72.48 19.74 L73.10 19.90 L73.69 20.09 L74.26 20.33 L74.81 20.59 L75.34 20.88 L75.85 21.21 L76.32 21.56 L76.77 21.93 L77.19 22.33 L77.58 22.75 L77.93 23.19 L78.26 23.64 L78.55 24.11 L78.81 24.59 L79.03 25.08 L79.22 25.57 L79.38 26.07 L79.50 26.58 L79.59 27.08 L79.65 27.58 L79.67 28.08 L79.66 28.57 L79.62 29.05 L79.55 29.52 L79.46 29.99 L79.33 30.43 L79.18 30.86 L79.00 31.28 L78.80 31.68 L78.58 32.05 L78.34 32.41 L78.08 32.74 L77.80 33.06 L77.50 33.34 L77.20 33.61 L76.88 33.85 L76.55 34.06 L76.22 34.25 L75.88 34.42 L75.53 34.55 L75.19 34.67 L74.84 34.76 L74.49 34.82 L74.15 34.86 L73.81 34.88 L73.48 34.87 L73.15 34.84 L72.84 34.79 L72.53 34.72 L72.24 34.63 L71.96 34.52 L71.69 34.40 L71.44 34.26 L71.20 34.11 L70.98 33.94 L70.78 33.77" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+
+<section class="login" id="login">
+  <div class="card">
+    <svg aria-hidden="true"><use href="#spiral"/></svg>
+    <h1>Πάνελ διαχείρισης</h1>
+    <p>Γράψτε τον κωδικό σας για να αλλάξετε τα νέα, τα μαθήματα και τις παραστάσεις της ιστοσελίδας.</p>
+    <form id="loginForm"><div class="f"><input id="pass" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Κωδικός" aria-label="Κωδικός" required></div>
+    <button class="btn btn-gold" style="width:100%">Είσοδος</button></form>
+    <p class="err" id="loginErr" role="alert"></p>
+  </div>
+</section>
+
+<div id="app" hidden>
+  <header class="top"><div class="wrap">
+    <svg aria-hidden="true"><use href="#spiral"/></svg>
+    <div><h1>Η ιστοσελίδα μου</h1><small>Γιάννης &amp; Γιώργος Μεγαλακάκης</small></div>
+    <a class="help" href="odigos/" target="_blank" rel="noopener">? Οδηγός</a>
+  </div></header>
+  <main class="wrap">
+    <p class="demo" id="demoNote" hidden><b>Δοκιμαστική λειτουργία.</b> Δοκιμάστε ελεύθερα: ό,τι αλλάζετε εδώ το βλέπετε μόνο εσείς, σε αυτή τη συσκευή. Όταν η ιστοσελίδα βγει στο megalakakis.gr, το ίδιο πάνελ θα αλλάζει την ιστοσελίδα για όλους.</p>
+    <nav class="tabs" role="tablist" aria-label="Ενότητες">
+      <button role="tab" aria-selected="true" data-t="news">Νέα</button>
+      <button role="tab" aria-selected="false" data-t="lessons">Μαθήματα</button>
+      <button role="tab" aria-selected="false" data-t="shows">Παραστάσεις</button>
+      <button role="tab" aria-selected="false" data-t="contact">Στοιχεία</button>
+    </nav>
+    <section class="pane on" id="p-news">
+      <p class="intro">Τα νέα εμφανίζονται στην αρχή της ιστοσελίδας. Το πιο πρόσφατο βγαίνει μεγάλο, τα υπόλοιπα από κάτω.</p>
+      <button class="add" type="button" data-add="news">+ Νέα ανακοίνωση</button>
+      <div id="l-news"></div>
+    </section>
+    <section class="pane" id="p-lessons">
+      <p class="intro">Πού και πότε διδάσκετε κάθε εβδομάδα. Αλλάξτε τη διδακτική περίοδο όταν ξεκινά νέα χρονιά.</p>
+      <div class="f"><label for="season">Διδακτική περίοδος</label><input id="season" type="text" placeholder="π.χ. 2026 – 2027"></div>
+      <button class="add" type="button" data-add="lessons">+ Νέο μάθημα</button>
+      <div id="l-lessons"></div>
+    </section>
+    <section class="pane" id="p-shows">
+      <p class="intro">Οι παραστάσεις σας, ανά χρονιά. Οι νεότερες εμφανίζονται πρώτες.</p>
+      <button class="add" type="button" data-add="shows">+ Νέα παράσταση</button>
+      <div id="l-shows"></div>
+    </section>
+    <section class="pane" id="p-contact">
+      <p class="intro">Τα στοιχεία που βλέπει ο επισκέπτης στο τέλος της σελίδας και στο κουμπί «Κλήση» στο κινητό.</p>
+      <div class="f"><label for="c-name">Όνομα</label><input id="c-name" type="text" data-c="name"></div>
+      <div class="f"><label for="c-phone">Τηλέφωνο</label><input id="c-phone" type="tel" data-c="phone"></div>
+      <div class="f"><label for="c-email">Email</label><input id="c-email" type="email" data-c="email"></div>
+      <div class="f"><label>Μηνύματα στο τηλέφωνο αυτό</label><div class="chips"><button type="button" data-cb="viber" aria-pressed="false">Viber</button><button type="button" data-cb="whatsapp" aria-pressed="false">WhatsApp</button></div></div>
+      <div class="f"><label for="c-fb">Facebook (σύνδεσμος)</label><input id="c-fb" type="url" data-c="facebook" placeholder="https://www.facebook.com/…"></div>
+      <div class="f"><label for="c-ig">Instagram (σύνδεσμος)</label><input id="c-ig" type="url" data-c="instagram" placeholder="https://www.instagram.com/…"></div>
+      <div class="f"><label for="c-yt">YouTube (σύνδεσμος)</label><input id="c-yt" type="url" data-c="youtube" placeholder="https://www.youtube.com/…"></div>
+    </section>
+  </main>
+  <div class="pub"><div class="wrap">
+    <p class="st" id="pubSt"><b>Όλα δημοσιευμένα.</b> Η ιστοσελίδα είναι ενημερωμένη.</p>
+    <a class="btn btn-line" id="viewSite" href="./" target="_blank" rel="noopener" style="display:grid;place-items:center;text-decoration:none">Δείτε τη σελίδα</a>
+    <button class="btn btn-gold" id="publish" type="button" disabled>Δημοσίευση</button>
+  </div></div>
+</div>
+
+<section class="ed" id="ed" aria-modal="true" role="dialog" aria-labelledby="edT">
+  <div class="bar"><div class="wrap"><button class="ib" type="button" id="edBack" aria-label="Πίσω"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><h2 id="edT">Επεξεργασία</h2><button class="btn btn-ink" type="button" id="edOk">Έτοιμο</button></div></div>
+  <div class="wrap" id="edBody"></div>
+</section>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+var HASH='06e5e167e28bb5368929f37b6e41cae96ff914c18873171832c90d356c3ca0af';
+var D=document,$=function(s){return D.querySelector(s)},C=null,PUB=null,PASS='',DEMO=false,EDIT=null;
+var KINDS=[['seminar','Σεμινάριο'],['lessons','Μαθήματα'],['show','Παράσταση'],['online','Online'],['news','Νέα']];
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function toast(t,k){var e=$('#toast');e.textContent=t;e.className='toast on '+(k||'');clearTimeout(e._t);e._t=setTimeout(function(){e.className='toast'},3200)}
+function sha(t){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')})}
+function uid(p){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+
+/* ---- load ---- */
+function getJSON(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw r.status;return r.json()})}
+function boot(){
+  return getJSON('/api/content').catch(function(e){
+    return getJSON('/api/status').then(function(){return null},function(){DEMO=true;return null});
+  }).then(function(live){
+    return live||getJSON('content.json?v='+Date.now());
+  }).then(function(c){
+    PUB=JSON.stringify(c);
+    var draft=null;try{draft=JSON.parse(ls('meg-admin-draft')||'null')}catch(e){}
+    if(DEMO){var demo=null;try{demo=JSON.parse(ls('meg-demo')||'null')}catch(e){} if(demo){PUB=JSON.stringify(demo)}}
+    C=JSON.parse(draft&&draft.base===PUB?JSON.stringify(draft.c):PUB);
+    $('#demoNote').hidden=!DEMO;
+    renderAll();status();
+  });
+}
+
+/* ---- login ---- */
+$('#loginForm').addEventListener('submit',function(e){
+  e.preventDefault();var p=$('#pass').value.trim();$('#loginErr').textContent='';
+  var b=e.target.querySelector('button');b.disabled=true;b.innerHTML='<span class="spin"></span>';
+  fetch('/api/save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({pass:p,action:'login'})})
+  .then(function(r){if(r.status===401)throw 'pass';if(!r.ok)throw 'srv';return true})
+  .catch(function(err){if(err==='pass'||!/drafts\.advonmedia\.com|github\.io|localhost|127\.0\.0\.1/.test(location.host))throw err;return sha(p).then(function(h){if(h!==HASH)throw 'pass';DEMO=true;return true})})
+  .then(function(){PASS=p;try{sessionStorage.setItem('meg-pass',p)}catch(e){}$('#login').hidden=true;$('#app').hidden=false;return boot()})
+  .catch(function(err){$('#loginErr').textContent=err==='pass'?'Ο κωδικός δεν είναι σωστός. Δοκιμάστε ξανά.':'Κάτι δεν πήγε καλά. Δοκιμάστε ξανά σε λίγο.'})
+  .then(function(){b.disabled=false;b.textContent='Είσοδος'});
+});
+try{var sp=sessionStorage.getItem('meg-pass');if(sp){$('#pass').value=sp;$('#loginForm').requestSubmit()}}catch(e){}
+
+/* ---- tabs ---- */
+D.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){
+  D.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+  D.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id==='p-'+b.dataset.t)});
+  scrollTo(0,0);
+})});
+
+/* ---- lists ---- */
+var IC={edit:'<svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>',up:'<svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>',down:'<svg viewBox="0 0 24 24"><path d="M6 10l6 6 6-6"/></svg>'};
+function kindName(k){var f=KINDS.find(function(x){return x[0]===k});return f?f[1]:'Νέα'}
+function fmt(d){if(!d)return '';var p=d.split('-');return p.length===3?p[2]+'/'+p[1]+'/'+p[0]:d}
+function renderAll(){
+  var n=C.news.slice().sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''))});
+  $('#l-news').innerHTML=n.length?n.map(function(x){return '<div class="item"><div class="th" style="background-image:url(\''+esc(x.img||'')+'\')"></div><div class="tx"><b>'+esc(x.title||'(χωρίς τίτλο)')+'</b><span>'+kindName(x.kind)+' · ανάρτηση '+fmt(x.date)+'</span></div><div class="acts"><button class="ib" type="button" aria-label="Αλλαγή" data-ed="news:'+x.id+'">'+IC.edit+'</button></div></div>'}).join(''):'<p class="empty">Δεν υπάρχουν νέα. Πατήστε «+ Νέα ανακοίνωση».</p>';
+  $('#season').value=(C.lessons||{}).season||'';
+  var L=(C.lessons||{}).items||[];
+  $('#l-lessons').innerHTML=L.length?L.map(function(x,i){return '<div class="item"><div class="tx"><b>'+esc(x.area)+'</b><span>'+esc(x.day)+' · '+esc(x.time)+' · '+esc(x.teacher||'')+'</span></div><div class="acts">'+(i?'<button class="ib" type="button" aria-label="Πιο πάνω" data-mv="lessons:'+x.id+':-1">'+IC.up+'</button>':'')+'<button class="ib" type="button" aria-label="Αλλαγή" data-ed="lessons:'+x.id+'">'+IC.edit+'</button></div></div>'}).join(''):'<p class="empty">Δεν υπάρχουν μαθήματα.</p>';
+  var S=C.shows||[],years=[],by={};S.forEach(function(s){var y=String(s.year||'—');if(!by[y]){by[y]=[];years.push(y)}by[y].push(s)});years.sort(function(a,b){return b.localeCompare(a)});
+  $('#l-shows').innerHTML=years.map(function(y){return '<p class="year">'+esc(y)+'</p>'+by[y].map(function(x){return '<div class="item">'+(x.img?'<div class="th" style="background-image:url(\''+esc(x.img)+'\')"></div>':'')+'<div class="tx"><b>«'+esc(x.title)+'»</b><span>'+esc((x.text||'').slice(0,80))+'</span></div><div class="acts"><button class="ib" type="button" aria-label="Αλλαγή" data-ed="shows:'+x.id+'">'+IC.edit+'</button></div></div>'}).join('')}).join('');
+  var k=C.contact||{};D.querySelectorAll('[data-c]').forEach(function(i){i.value=k[i.dataset.c]||''});
+  D.querySelectorAll('[data-cb]').forEach(function(b){b.setAttribute('aria-pressed',!!k[b.dataset.cb])});
+}
+$('#season').addEventListener('input',function(e){C.lessons.season=e.target.value;C.lessons.season_en=e.target.value;changed()});
+D.querySelectorAll('[data-c]').forEach(function(i){i.addEventListener('input',function(){C.contact[i.dataset.c]=i.value.trim();changed()})});
+D.querySelectorAll('[data-cb]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',v);C.contact[b.dataset.cb]=v;changed()})});
+D.addEventListener('click',function(e){
+  var a=e.target.closest('[data-add]'),ed=e.target.closest('[data-ed]'),mv=e.target.closest('[data-mv]');
+  if(a)openEd(a.dataset.add,null);
+  if(ed){var p=ed.dataset.ed.split(':');openEd(p[0],p[1])}
+  if(mv){var q=mv.dataset.mv.split(':'),arr=C.lessons.items,i=arr.findIndex(function(x){return x.id===q[1]}),j=i+(+q[2]);if(j>=0&&j<arr.length){var t=arr[i];arr[i]=arr[j];arr[j]=t;renderAll();changed()}}
+});
+
+/* ---- editor ---- */
+var FORMS={
+ news:[['kind','Είδος','kind'],['title','Τίτλος','text','π.χ. Σεμινάριο κρητικών χορών στη Λάρισα'],['img','Αφίσα ή φωτογραφία','photo'],['when','Πότε','text','π.χ. Σάββατο 12 Δεκεμβρίου 2026 · 17:00 – 20:00'],['place','Πού','text','π.χ. Πολιτιστικό Κέντρο Λάρισας'],['text','Κείμενο','area','Λίγα λόγια για την ανακοίνωση'],['phone','Τηλέφωνο για πληροφορίες / κρατήσεις','tel','π.χ. 697 187 0962'],
+  ['_more','Περισσότερα (προαιρετικά)'],['date','Ημερομηνία ανάρτησης','date','','Ορίζει τη σειρά: η πιο πρόσφατη βγαίνει πρώτη.'],['link','Σύνδεσμος (π.χ. Facebook εκδήλωσης)','url','https://…'],['link_label','Κείμενο κουμπιού για τον σύνδεσμο','text','π.χ. Η εκδήλωση στο Facebook'],
+  ['_en','Στα αγγλικά (προαιρετικά — αλλιώς φαίνονται τα ελληνικά)'],['title_en','Title','text'],['when_en','When','text'],['place_en','Where','text'],['text_en','Text','area']],
+ lessons:[['area','Περιοχή','text','π.χ. Νέα Ιωνία'],['day','Ημέρα','text','π.χ. Κάθε Πέμπτη'],['time','Ώρες','text','π.χ. 18:00 – 21:30'],['teacher','Διδάσκει','text','π.χ. Γιάννης Μεγαλακάκης'],['club','Σύλλογος / χώρος','text'],['address','Διεύθυνση','text','Ο επισκέπτης την πατάει και ανοίγει ο χάρτης'],['phone','Τηλέφωνο πληροφοριών','tel'],
+  ['_en','Στα αγγλικά (προαιρετικά)'],['area_en','Area','text'],['day_en','Day','text'],['teacher_en','Teacher','text'],['club_en','Association / venue','text'],['address_en','Address','text']],
+ shows:[['year','Χρονιά','text','π.χ. 2027'],['title','Τίτλος παράστασης','text','χωρίς εισαγωγικά — μπαίνουν μόνα τους'],['img','Αφίσα (προαιρετικά)','photo'],['text','Λίγα λόγια','area','Πού, πότε, με ποιους μουσικούς'],
+  ['_en','Στα αγγλικά (προαιρετικά)'],['title_en','Title','text'],['text_en','Text','area']]
+};
+var NAMES={news:['Νέα ανακοίνωση','Ανακοίνωση'],lessons:['Νέο μάθημα','Μάθημα'],shows:['Νέα παράσταση','Παράσταση']};
+function list(t){return t==='lessons'?C.lessons.items:C[t]}
+function openEd(type,id){
+  var obj=id?JSON.parse(JSON.stringify(list(type).find(function(x){return x.id===id}))):{id:uid(type[0]),date:today(),kind:'seminar',year:String(new Date().getFullYear())};
+  EDIT={type:type,id:id,o:obj};
+  $('#edT').textContent=id?NAMES[type][1]:NAMES[type][0];
+  var h='',inMore=false;
+  FORMS[type].forEach(function(f){
+    if(f[0]==='_more'||f[0]==='_en'){if(inMore)h+='</details>';h+='<details class="more"><summary>'+f[1]+'</summary>';inMore=true;return}
+    var v=obj[f[0]]==null?'':obj[f[0]],ph=f[3]?' placeholder="'+esc(f[3])+'"':'';
+    h+='<div class="f"><label for="e-'+f[0]+'">'+f[1]+'</label>'+(f[4]?'<span class="hint">'+f[4]+'</span>':'');
+    if(f[2]==='kind')h+='<div class="chips" id="e-kind">'+KINDS.map(function(k){return '<button type="button" data-k="'+k[0]+'" aria-pressed="'+(v===k[0])+'">'+k[1]+'</button>'}).join('')+'</div>';
+    else if(f[2]==='area')h+='<textarea id="e-'+f[0]+'" data-f="'+f[0]+'"'+ph+'>'+esc(v)+'</textarea>';
+    else if(f[2]==='photo')h+='<div class="photo" id="e-photo"><img id="e-img" alt=""'+(v?' src="'+esc(v)+'"':' hidden')+'><label class="pick"><input type="file" accept="image/*" id="e-file">'+(v?'Αλλαγή φωτογραφίας':'Διαλέξτε φωτογραφία')+'</label><button type="button" class="rm" id="e-rm"'+(v?'':' hidden')+'>Αφαίρεση φωτογραφίας</button><span class="hint" id="e-up" style="margin-top:8px"></span></div>';
+    else h+='<input id="e-'+f[0]+'" data-f="'+f[0]+'" type="'+(f[2]==='tel'?'tel':f[2]==='url'?'url':f[2]==='date'?'date':'text')+'" value="'+esc(v)+'"'+ph+'>';
+    h+='</div>';
+  });
+  if(inMore)h+='</details>';
+  if(id)h+='<button class="btn btn-del" type="button" id="edDel">Διαγραφή</button>';
+  $('#edBody').innerHTML=h;$('#ed').classList.add('on');$('#ed').scrollTop=0;D.body.style.overflow='hidden';
+  D.querySelectorAll('#e-kind button').forEach(function(b){b.addEventListener('click',function(){D.querySelectorAll('#e-kind button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});EDIT.o.kind=b.dataset.k})});
+  D.querySelectorAll('#edBody [data-f]').forEach(function(i){i.addEventListener('input',function(){EDIT.o[i.dataset.f]=i.value})});
+  var file=$('#e-file');if(file)file.addEventListener('change',function(){if(file.files[0])upload(file.files[0])});
+  var rm=$('#e-rm');if(rm)rm.addEventListener('click',function(){EDIT.o.img='';$('#e-img').hidden=true;rm.hidden=true});
+  var del=$('#edDel');if(del)del.addEventListener('click',function(){
+    if(del.dataset.sure!=='1'){del.dataset.sure='1';del.textContent='Πατήστε ξανά για οριστική διαγραφή';return}
+    var arr=list(type),i=arr.findIndex(function(x){return x.id===id});if(i>-1)arr.splice(i,1);closeEd();renderAll();changed();toast('Διαγράφηκε — πατήστε «Δημοσίευση» για να φύγει και από την ιστοσελίδα');
+  });
+}
+function closeEd(){$('#ed').classList.remove('on');D.body.style.overflow='';EDIT=null}
+$('#edBack').addEventListener('click',function(){closeEd()});
+$('#edOk').addEventListener('click',function(){
+  var o=EDIT.o,t=EDIT.type;
+  var req=t==='lessons'?'area':'title';
+  if(!String(o[req]||'').trim()){toast(t==='lessons'?'Γράψτε την περιοχή':'Γράψτε τον τίτλο','bad');return}
+  if(D.querySelector('#e-up .spin')){toast('Περιμένετε να ανέβει η φωτογραφία','bad');return}
+  var arr=list(t),i=arr.findIndex(function(x){return x.id===o.id});
+  if(i>-1)arr[i]=o;else if(t==='lessons')arr.push(o);else arr.unshift(o);
+  closeEd();renderAll();changed();toast('Αποθηκεύτηκε — πατήστε «Δημοσίευση» για να φανεί στην ιστοσελίδα');
+});
+
+/* ---- photos: resized on the phone, then uploaded ---- */
+function shrink(file,max,q){return new Promise(function(res,rej){
+  var img=new Image(),u=URL.createObjectURL(file);
+  img.onload=function(){var s=Math.min(1,max/Math.max(img.width,img.height)),w=Math.round(img.width*s),h=Math.round(img.height*s),cv=D.createElement('canvas');cv.width=w;cv.height=h;cv.getContext('2d').drawImage(img,0,0,w,h);URL.revokeObjectURL(u);
+    cv.toBlob(function(b){b?res(b):cv.toBlob(function(b2){res(b2)},'image/jpeg',q)},'image/webp',q)};
+  img.onerror=function(){rej('img')};img.src=u})}
+function upload(file){
+  var st=$('#e-up');st.innerHTML='<span class="spin"></span> Ανεβαίνει η φωτογραφία…';
+  shrink(file,DEMO?1100:1800,DEMO?.78:.84).then(function(b){
+    if(DEMO)return new Promise(function(res){var r=new FileReader();r.onload=function(){res(r.result)};r.readAsDataURL(b)});
+    return fetch('/api/upload',{method:'POST',headers:{'content-type':b.type,'x-pass':PASS},body:b}).then(function(r){if(!r.ok)throw r.status;return r.json()}).then(function(j){return j.url});
+  }).then(function(url){EDIT.o.img=url;var im=$('#e-img');im.src=url;im.hidden=false;$('#e-rm').hidden=false;var pk=D.querySelector('#e-photo .pick');if(pk)pk.lastChild.textContent='Αλλαγή φωτογραφίας';st.textContent='Η φωτογραφία είναι έτοιμη.'})
+  .catch(function(){st.textContent='Η φωτογραφία δεν ανέβηκε. Δοκιμάστε ξανά ή διαλέξτε άλλη.';toast('Η φωτογραφία δεν ανέβηκε','bad')});
+}
+
+/* ---- publish ---- */
+function changed(){ls('meg-admin-draft',JSON.stringify({base:PUB,c:C}));status()}
+function dirty(){return JSON.stringify(C)!==PUB}
+function status(){
+  var d=dirty(),s=$('#pubSt');$('#publish').disabled=!d;s.classList.toggle('dirty',d);
+  s.innerHTML=d?'<b>Έχετε αλλαγές που δεν έχουν δημοσιευτεί.</b> Πατήστε «Δημοσίευση» όταν είστε έτοιμοι.':'<b>Όλα δημοσιευμένα.</b> '+(DEMO?'Οι δοκιμαστικές σας αλλαγές φαίνονται στη σελίδα.':'Η ιστοσελίδα είναι ενημερωμένη.');
+  $('#viewSite').href=DEMO?'./?demo=1':'./';
+}
+$('#publish').addEventListener('click',function(){
+  var b=this;b.disabled=true;b.innerHTML='<span class="spin"></span>';
+  C.updated=new Date().toISOString();
+  var p=DEMO?new Promise(function(res,rej){try{localStorage.setItem('meg-demo',JSON.stringify(C));res()}catch(e){rej('space')}}):
+    fetch('/api/save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({pass:PASS,action:'publish',content:C})}).then(function(r){if(!r.ok)throw r.status});
+  p.then(function(){PUB=JSON.stringify(C);ls('meg-admin-draft',null);status();toast(DEMO?'Έτοιμο! Πατήστε «Δείτε τη σελίδα» για να το δείτε.':'Δημοσιεύτηκε! Η ιστοσελίδα άλλαξε.','ok')})
+   .catch(function(e){toast(e==='space'?'Δεν χωράνε άλλες φωτογραφίες στη δοκιμή. Αφαιρέστε μία.':'Δεν δημοσιεύτηκε. Ελέγξτε το ίντερνετ και δοκιμάστε ξανά.','bad')})
+   .then(function(){b.textContent='Δημοσίευση';status()});
+});
+addEventListener('beforeunload',function(e){if(C&&dirty()){e.preventDefault();e.returnValue=''}});
+})();
+</script>
+</body>
+</html>
