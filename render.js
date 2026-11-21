@@ -61,7 +61,7 @@
     return years.map(function (y) {
       return '<section class="sy"><h3 class="sy-y"><span>' + esc(y) + '</span></h3><div class="sy-l">' + by[y].map(function (s) {
         return '<article class="sh' + (s.img ? ' sh-img' : '') + '">' + (s.img ? '<figure class="sh-ph">' + img(s.img, 'Αφίσα: ' + s.title, 'Poster: ' + en(s, 'title')) + '</figure>' : '') +
-          '<div class="sh-tx"><h4 class="sh-t" data-en="' + esc('«' + en(s, 'title') + '»') + '">«' + esc(s.title) + '»</h4>' + T('p', s, 'text', 'sh-x', true) + '</div></article>';
+          '<div class="sh-tx"><h4 class="sh-t" data-en="' + esc('«' + en(s, 'title') + '»') + '">«' + esc(s.title) + '»</h4>' + T('p', s, 'text', 'sh-x', true) + (s.video ? '<div class="yt-w"><button class="yt" type="button" data-yt="' + esc(s.video) + '" aria-label="Βίντεο: ' + esc(s.title) + '" data-en-aria="Video: ' + esc(en(s, 'title')) + '"><img src="assets/img/video/megalakakis-video-' + esc(s.video) + '.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><span class="yt-p" aria-hidden="true"></span><span class="yt-l" data-en="Watch the video">Δείτε το βίντεο</span></button></div>' : '') + '</div></article>';
       }).join('') + '</div></section>';
     }).join('');
   }
