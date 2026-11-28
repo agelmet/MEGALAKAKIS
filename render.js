@@ -90,6 +90,156 @@
     out += '<a href="#nea" data-en="News">Νέα</a>';
     return out;
   }
-  var api = { news: news, lessons: lessons, shows: shows, contact: contact, mbar: mbar, esc: esc, KIND: KIND };
+  /* ===== v2 (28 Nov 2026): δράσεις με ημερομηνία, βιντεοθήκες, τραγούδια, βιβλιοθήκη, Τύπος ===== */
+  var KIND2 = {
+    seminar: 'Σεμινάριο', lessons: 'Μαθήματα', show: 'Παράσταση', online: 'Online', news: 'Νέα',
+    experiential: 'Βιωματικό σεμινάριο', book: 'Παρουσίαση βιβλίου', documentary: 'Προβολή ντοκιμαντέρ',
+    lecture: 'Διάλεξη', media: 'Στα ΜΜΕ', song: 'Νέο τραγούδι', exhibition: 'Έκθεση',
+    music: 'Μουσική συνάντηση', glenti: 'Γλέντι', collab: 'Συνεργασία'
+  };
+  var MON = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'];
+  var MONS = ['Ιαν', 'Φεβ', 'Μαρ', 'Απρ', 'Μάι', 'Ιουν', 'Ιουλ', 'Αυγ', 'Σεπ', 'Οκτ', 'Νοε', 'Δεκ'];
+  function iso(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function today(o) { return (o && o.today) || iso(new Date()); }
+  function evEnd(n) { return n.end || n.start || n.date || ''; }
+  function upcoming(n, o) { return !!n.start && evEnd(n) >= today(o); }
+  function dfmt(s) { if (!s) return ''; var p = s.split('-'); return +p[2] + ' ' + MON[+p[1] - 1] + ' ' + p[0]; }
+  function evSort(L, o) {
+    var t = today(o), up = [], past = [];
+    L.forEach(function (n) { (upcoming(n, o) ? up : past).push(n); });
+    up.sort(function (a, b) { return String(a.start).localeCompare(String(b.start)); });
+    past.sort(function (a, b) { return String(b.start || b.date || '').localeCompare(String(a.start || a.date || '')); });
+    return { up: up, past: past };
+  }
+  function evCard(n, o) {
+    var up = upcoming(n, o), k = KIND2[n.kind] || KIND2.news, d = n.start || '';
+    var btn = '';
+    if (n.phone) btn += '<a class="btn btn-gold btn-s" href="tel:' + tel(n.phone) + '">Κλήση ' + esc(n.phone) + '</a>';
+    if (n.link) btn += '<a class="btn btn-line btn-s" href="' + esc(n.link) + '" target="_blank" rel="noopener">' + esc(n.link_label || 'Περισσότερα') + ' ↗</a>';
+    return '<article class="ev' + (up ? ' ev-up' : ' ev-past') + '" data-kind="' + esc(n.kind || 'news') + '" data-up="' + (up ? 1 : 0) + '" data-start="' + esc(d) + '" data-end="' + esc(evEnd(n)) + '">' +
+      (d ? '<p class="ev-d" aria-hidden="true"><b>' + (+d.slice(8, 10)) + '</b><span>' + MONS[+d.slice(5, 7) - 1] + '</span><i>' + d.slice(0, 4) + '</i></p>' : '<p class="ev-d ev-d0" aria-hidden="true"><b>·</b></p>') +
+      (n.img ? '<figure class="ev-ph">' + img(n.img, n.title, n.title, '', '') + '</figure>' : '') +
+      '<div class="ev-tx"><p class="ev-k"><span class="ev-st">' + (up ? 'Προσεχώς' : 'Ολοκληρώθηκε') + '</span> · ' + esc(k) + '</p>' +
+      '<h3 class="ev-t">' + esc(n.title) + '</h3>' +
+      '<p class="ev-w">' + esc(n.when || dfmt(d)) + '</p>' + (n.place ? '<p class="ev-p">' + esc(n.place) + '</p>' : '') +
+      (n.text ? '<p class="ev-x">' + nl(n.text) + '</p>' : '') + (up && btn ? '<p class="ev-b">' + btn + '</p>' : '') + '</div></article>';
+  }
+  /* arg: "all" | "home" | "kind:seminar,experiential" ; o.today για το build */
+  function events(c, arg, o) {
+    var L = (c.news || []).slice(), a = String(arg || 'all');
+    if (a.indexOf('kind:') === 0) { var ks = a.slice(5).split(','); L = L.filter(function (n) { return ks.indexOf(n.kind) >= 0; }); }
+    var S = evSort(L, o);
+    if (a === 'home') {
+      var pick = S.up.slice(0, 3); if (pick.length < 3) pick = pick.concat(S.past.slice(0, 3 - pick.length));
+      if (!pick.length) return '<p class="empty">Σύντομα εδώ οι νέες μας δράσεις.</p>';
+      return '<div class="ev-l ev-home">' + pick.map(function (n) { return evCard(n, o); }).join('') + '</div>';
+    }
+    if (a.indexOf('kind:') === 0) {
+      if (!S.up.length) return '<p class="empty ev-none">Δεν υπάρχει ανακοινωμένη ημερομηνία αυτή τη στιγμή. Οι νέες ημερομηνίες ανακοινώνονται εδώ και στο <a href="nea.html">Ημερολόγιο δράσεων</a>.</p>';
+      return '<div class="ev-l">' + S.up.map(function (n) { return evCard(n, o); }).join('') + '</div>';
+    }
+    return '<div class="ev-l ev-all">' + S.up.concat(S.past).map(function (n) { return evCard(n, o); }).join('') + '</div>' +
+      '<p class="empty ev-none" hidden>Δεν υπάρχουν δράσεις σε αυτή την επιλογή αυτή τη στιγμή.</p>';
+  }
+  /* ημερολόγιο (μήνας): μόνο στον browser — η ίδια λίστα δίνει τις τελείες */
+  function calendar(c, ym, o) {
+    var L = c.news || [], y = +ym.slice(0, 4), m = +ym.slice(5, 7) - 1, first = new Date(y, m, 1), days = new Date(y, m + 1, 0).getDate();
+    var off = (first.getDay() + 6) % 7, t = today(o), out = '';
+    var head = ['Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα', 'Κυ'].map(function (d) { return '<span class="cal-h">' + d + '</span>'; }).join('');
+    for (var i = 0; i < off; i++) out += '<span class="cal-c cal-x"></span>';
+    for (var dd = 1; dd <= days; dd++) {
+      var ds = y + '-' + ('0' + (m + 1)).slice(-2) + '-' + ('0' + dd).slice(-2);
+      var hits = L.filter(function (n) { return n.start && n.start <= ds && evEnd(n) >= ds; });
+      out += '<span class="cal-c' + (ds === t ? ' cal-t' : '') + (hits.length ? ' cal-on' : '') + '">' + '<b>' + dd + '</b>' +
+        hits.slice(0, 2).map(function (n) { return '<i class="cal-e' + (upcoming(n, o) ? ' up' : '') + '" title="' + esc(n.title) + '">' + esc(n.title) + '</i>'; }).join('') + '</span>';
+    }
+    return '<div class="cal-g">' + head + out + '</div>';
+  }
+
+  /* ---- βίντεο: μία καταχώριση, εμφανίζεται σε όσες βιντεοθήκες λέει το cats ---- */
+  var THUMBS = ['2e0sYFYPjpg', 'BAQGSmQYjAY', 'C19N8ATs1yg', 'M0XdSZHXP8E', 'VSzDWDViESw', 'V_UOPM8qrEQ', 'Wzs5LTNdI_8', 'c0aT5obGBLA', 'vUrQhczH2Es', 'w9vjREs2fa4', 'wAnw_fWIbks'];
+  function ytid(v) { v = String(v || '').trim(); var m = v.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/); return m ? m[1] : (/^[\w-]{11}$/.test(v) ? v : ''); }
+  function vthumb(id, title) {
+    if (THUMBS.indexOf(id) >= 0) return '<img src="assets/img/video/megalakakis-video-' + esc(id) + '.webp" alt="" width="640" height="360" loading="lazy" decoding="async">';
+    return '<span class="vt-ph" aria-hidden="true"><svg viewBox="-4 -4 108 68"><use href="#spiral"/></svg><span>' + esc(title) + '</span></span>';
+  }
+  function meta(parts) { parts = parts.filter(function (x) { return x && String(x).trim(); }); return parts.length ? '<p class="vc-m">' + parts.map(esc).join(' · ') + '</p>' : ''; }
+  function vcard(v) {
+    var id = ytid(v.yt);
+    return '<article class="vc" data-where="' + esc(v.where || '') + '" data-y="' + esc(v.year || '') + '">' +
+      (id ? '<div class="yt-w"><button class="yt" type="button" data-yt="' + esc(id) + '" aria-label="Βίντεο: ' + esc(v.title) + '">' + vthumb(id, v.title) +
+        '<span class="yt-p" aria-hidden="true"></span><span class="yt-l">Δείτε το βίντεο</span></button></div>' : '') +
+      '<div class="vc-tx"><h3 class="vc-t">' + esc(v.title) + '</h3>' +
+      meta([v.channel, v.show, v.host ? 'Παρουσίαση: ' + v.host : '', v.speaker ? 'Ομιλητής: ' + v.speaker : '', v.place, v.country, v.year, v.org ? 'Διοργάνωση: ' + v.org : '']) +
+      (v.theme ? '<p class="vc-th">' + esc(v.theme) + '</p>' : '') + (v.desc ? '<p class="vc-x">' + nl(v.desc) + '</p>' : '') + '</div></article>';
+  }
+  function videos(c, cat) {
+    var L = (c.videos || []).filter(function (v) { return !v.hidden && (cat === 'featured' ? v.featured : (v.cats || []).indexOf(cat) >= 0); });
+    L.sort(function (a, b) { return String(b.year || '').localeCompare(String(a.year || '')); });
+    if (!L.length) return '<p class="empty vl-none">Η βιντεοθήκη εμπλουτίζεται συνεχώς — τα πρώτα βίντεο προστίθενται σύντομα.</p>';
+    return '<div class="vl">' + L.map(vcard).join('') + '</div><p class="empty vl-none" hidden>Δεν υπάρχουν ακόμη βίντεο σε αυτή την επιλογή.</p>';
+  }
+
+  /* ---- τραγούδια (στίχοι Γιάννη Μεγαλακάκη) ---- */
+  function songs(c) {
+    var L = (c.songs || []).filter(function (s) { return !s.hidden; });
+    if (!L.length) return '<p class="empty">Η μουσική βιβλιοθήκη ανοίγει σύντομα.</p>';
+    return '<div class="sl">' + L.map(function (s, i) {
+      var id = ytid(s.yt), cr = [['Στίχοι', s.lyricist], ['Μουσική', s.composer], ['Ερμηνεία', s.singer], ['Συντελεστές', s.credits], ['Χρονολογία', s.year]]
+        .filter(function (x) { return x[1]; }).map(function (x) { return '<div><dt>' + x[0] + '</dt><dd>' + esc(x[1]) + '</dd></div>'; }).join('');
+      return '<article class="sg" data-genre="' + esc(s.genre || '') + '">' +
+        '<p class="sg-n" aria-hidden="true">' + ('0' + (i + 1)).slice(-2) + '</p>' +
+        '<div class="sg-tx"><h3 class="sg-t">«' + esc(s.title) + '»</h3>' + (s.genre ? '<p class="sg-g">' + esc(s.genre) + '</p>' : '') +
+        (cr ? '<dl class="sg-cr">' + cr + '</dl>' : '') + (s.story ? '<div class="sg-st"><p class="sg-sl">Η ιστορία του τραγουδιού</p><p>' + nl(s.story) + '</p></div>' : '') + '</div>' +
+        (id ? '<div class="yt-w sg-v"><button class="yt" type="button" data-yt="' + esc(id) + '" aria-label="Τραγούδι: ' + esc(s.title) + '">' + vthumb(id, s.title) + '<span class="yt-p" aria-hidden="true"></span><span class="yt-l">Ακούστε το</span></button></div>' : '') +
+        '</article>';
+    }).join('') + '</div>';
+  }
+
+  /* ---- Ψηφιακή Βιβλιοθήκη ---- */
+  function fold(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ς/g, 'σ'); }
+  function library(c) {
+    var L = (c.library || []).filter(function (b) { return !b.hidden; });
+    if (!L.length) return '<p class="empty">Τα πρώτα τεκμήρια της Βιβλιοθήκης προστίθενται σύντομα.</p>';
+    return '<ul class="lib-l">' + L.map(function (b) {
+      var hay = fold([b.title, b.author, b.theme, b.keywords, b.type, b.year, b.ref].join(' '));
+      var link = b.url ? '<a class="lib-a" href="' + esc(b.url) + '"' + (/^https?:/.test(b.url) ? ' target="_blank" rel="noopener"' : '') + '>' + (b.full ? 'Διαβάστε το κείμενο' : 'Σύνδεσμος') + ' ' + (/^https?:/.test(b.url) ? '↗' : '→') + '</a>' : '';
+      return '<li class="lib" data-theme="' + esc(b.theme || '') + '" data-hay="' + esc(hay) + '">' +
+        '<p class="lib-k">' + esc(b.theme || '') + (b.type ? ' · ' + esc(b.type) : '') + '</p>' +
+        '<h3 class="lib-t">' + esc(b.title) + '</h3>' + '<p class="lib-au">' + esc(b.author || '') + (b.year ? ', ' + esc(b.year) : '') + '</p>' +
+        (b.ref ? '<p class="lib-r">' + esc(b.ref) + '</p>' : '') + (b.desc ? '<p class="lib-x">' + nl(b.desc) + '</p>' : '') + link + '</li>';
+    }).join('') + '</ul><p class="empty lib-none" hidden>Δεν βρέθηκε τεκμήριο με αυτά τα κριτήρια.</p>';
+  }
+
+  /* ---- Τύπος / δημοσιεύματα ---- */
+  function press(c, tag) {
+    var L = (c.press || []).filter(function (p) { return !p.hidden && (!tag || tag === 'all' || (p.tags || []).indexOf(tag) >= 0); });
+    L.sort(function (a, b) { return String(b.date || '').localeCompare(String(a.date || '')); });
+    if (!L.length) return '';
+    return '<ul class="pr-l">' + L.map(function (p) {
+      return '<li class="pr"><a href="' + esc(p.url) + '" target="_blank" rel="noopener"><span class="pr-o">' + esc(p.outlet) + (p.date ? ' · ' + esc(p.date.slice(0, 4)) : '') + '</span>' +
+        '<span class="pr-t">' + esc(p.title) + '</span>' + (p.about ? '<span class="pr-x">' + esc(p.about) + '</span>' : '') + '<span class="pr-go" aria-hidden="true">↗</span></a></li>';
+    }).join('') + '</ul>';
+  }
+
+  /* ενιαίο σημείο: <div data-r="videos:seminaria"> */
+  function block(c, spec, o) {
+    var i = spec.indexOf(':'), name = i < 0 ? spec : spec.slice(0, i), arg = i < 0 ? '' : spec.slice(i + 1);
+    switch (name) {
+      case 'events': return events(c, arg, o);
+      case 'calendar': return calendar(c, arg || today(o).slice(0, 7), o);
+      case 'videos': return videos(c, arg);
+      case 'songs': return songs(c);
+      case 'library': return library(c);
+      case 'press': return press(c, arg);
+      case 'lessons': return lessons(c);
+      case 'shows': return shows(c);
+      case 'contact': return contact(c);
+    }
+    return '';
+  }
+
+  var api = { news: news, lessons: lessons, shows: shows, contact: contact, mbar: mbar, esc: esc, KIND: KIND,
+    KIND2: KIND2, events: events, calendar: calendar, videos: videos, songs: songs, library: library, press: press, block: block, ytid: ytid, fold: fold };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.MEGR = api;
 })(this);

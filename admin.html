@@ -15,6 +15,11 @@
 @font-face{font-family:'Commissioner';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/commissioner-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Commissioner';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/commissioner-greek-600-normal.woff2) format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
 @font-face{font-family:'Commissioner';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/commissioner-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+.chips.multi button[aria-pressed="true"]::before{content:"✓ "}
+.item .tx .tg{display:inline-block;font-size:12px;padding:2px 8px;border-radius:10px;background:#efe6d6;color:#5a4a33;margin:3px 4px 0 0}
+.item .tx span.meta{display:block}
+.sw{display:flex;align-items:center;gap:10px;min-height:48px;cursor:pointer}
+.sw input{width:22px;height:22px;accent-color:#b08a4e}
 </style>
 <style>
 :root{--paper:#F5EFE4;--card:#FFFDF8;--ink:#1B1611;--ink2:#5A4E40;--gold:#C9A35C;--goldd:#83602A;--line:#E3D8C4;--red:#B3261E;--green:#2E7D4F;--sh:0 1px 2px rgba(20,14,8,.06),0 8px 24px rgba(20,14,8,.08);color-scheme:light only}
@@ -109,8 +114,8 @@ details.more summary{min-height:52px;display:flex;align-items:center;font-weight
   <div class="card">
     <svg aria-hidden="true"><use href="#spiral"/></svg>
     <h1>Πάνελ διαχείρισης</h1>
-    <p>Γράψτε τον κωδικό σας για να αλλάξετε τα νέα, τα μαθήματα και τις παραστάσεις της ιστοσελίδας.</p>
-    <form id="loginForm"><div class="f"><input id="pass" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Κωδικός" aria-label="Κωδικός" required></div>
+    <p>Γράψτε τον κωδικό σας για να αλλάξετε νέα, ημερολόγιο, μαθήματα, παραστάσεις, βίντεο, τραγούδια και βιβλιοθήκη.</p>
+    <form id="loginForm"><div class="f"><input id="pass" type="text" inputmode="numeric" autocomplete="off" autocapitalize="off" spellcheck="false" style="-webkit-text-security:disc" placeholder="Κωδικός" aria-label="Κωδικός" required></div>
     <button class="btn btn-gold" style="width:100%">Είσοδος</button></form>
     <p class="err" id="loginErr" role="alert"></p>
   </div>
@@ -128,6 +133,10 @@ details.more summary{min-height:52px;display:flex;align-items:center;font-weight
       <button role="tab" aria-selected="true" data-t="news">Νέα</button>
       <button role="tab" aria-selected="false" data-t="lessons">Μαθήματα</button>
       <button role="tab" aria-selected="false" data-t="shows">Παραστάσεις</button>
+      <button role="tab" aria-selected="false" data-t="videos">Βίντεο</button>
+      <button role="tab" aria-selected="false" data-t="songs">Τραγούδια</button>
+      <button role="tab" aria-selected="false" data-t="library">Βιβλιοθήκη</button>
+      <button role="tab" aria-selected="false" data-t="press">Τύπος</button>
       <button role="tab" aria-selected="false" data-t="contact">Στοιχεία</button>
     </nav>
     <section class="pane on" id="p-news">
@@ -145,6 +154,26 @@ details.more summary{min-height:52px;display:flex;align-items:center;font-weight
       <p class="intro">Οι παραστάσεις σας, ανά χρονιά. Οι νεότερες εμφανίζονται πρώτες.</p>
       <button class="add" type="button" data-add="shows">+ Νέα παράσταση</button>
       <div id="l-shows"></div>
+    </section>
+    <section class="pane" id="p-videos">
+      <p class="intro">Κάθε βίντεο το βάζετε <b>μία φορά</b> και διαλέγετε σε ποιες ενότητες της ιστοσελίδας θα εμφανίζεται (σεμινάρια, βιωματικά, παραστάσεις, συνεντεύξεις…). Αρκεί ο σύνδεσμος του YouTube.</p>
+      <button class="add" type="button" data-add="videos">+ Νέο βίντεο</button>
+      <div id="l-videos"></div>
+    </section>
+    <section class="pane" id="p-songs">
+      <p class="intro">Τα τραγούδια σε στίχους του Γιάννη. Βάλτε στιχουργό, συνθέτη, ερμηνευτή και — αν υπάρχει — το βίντεο στο YouTube.</p>
+      <button class="add" type="button" data-add="songs">+ Νέο τραγούδι</button>
+      <div id="l-songs"></div>
+    </section>
+    <section class="pane" id="p-library">
+      <p class="intro">Η Ψηφιακή Βιβλιοθήκη: κείμενα, άρθρα, καταγραφές. Ο επισκέπτης τα βρίσκει με αναζήτηση και ανά θεματική.</p>
+      <button class="add" type="button" data-add="library">+ Νέα καταχώριση</button>
+      <div id="l-library"></div>
+    </section>
+    <section class="pane" id="p-press">
+      <p class="intro">Δημοσιεύματα και κριτικές για εσάς στον Τύπο και στο διαδίκτυο.</p>
+      <button class="add" type="button" data-add="press">+ Νέο δημοσίευμα</button>
+      <div id="l-press"></div>
     </section>
     <section class="pane" id="p-contact">
       <p class="intro">Τα στοιχεία που βλέπει ο επισκέπτης στο τέλος της σελίδας και στο κουμπί «Κλήση» στο κινητό.</p>
@@ -174,7 +203,10 @@ details.more summary{min-height:52px;display:flex;align-items:center;font-weight
 (function(){
 var HASH='06e5e167e28bb5368929f37b6e41cae96ff914c18873171832c90d356c3ca0af';
 var D=document,$=function(s){return D.querySelector(s)},C=null,PUB=null,PASS='',DEMO=false,EDIT=null;
-var KINDS=[['seminar','Σεμινάριο'],['lessons','Μαθήματα'],['show','Παράσταση'],['online','Online'],['news','Νέα']];
+var KINDS=[['seminar','Σεμινάριο'],['experiential','Βιωματικό σεμινάριο'],['lessons','Μαθήματα'],['online','Online'],['show','Παράσταση'],['book','Παρουσίαση βιβλίου'],['documentary','Προβολή ντοκιμαντέρ'],['lecture','Διάλεξη'],['media','Στα ΜΜΕ'],['song','Νέο τραγούδι'],['exhibition','Έκθεση'],['music','Μουσική συνάντηση'],['glenti','Γλέντι'],['collab','Συνεργασία'],['news','Νέα']];
+var VCATS=[['seminaria','Σεμινάρια'],['viomatika','Βιωματικά σεμινάρια'],['parastaseis','Παραστάσεις'],['dialogos','Διάλογος Πολιτισμών'],['parousiaseis','Παρουσιάσεις βιβλίων'],['synentefxeis','Συνεντεύξεις & ΜΜΕ'],['omilies','Ομιλίες & διαλέξεις'],['didaskalia','Διδασκαλία']];
+var PTAGS=[['parastaseis','Παραστάσεις'],['ekdoseis','Εκδόσεις'],['synentefxeis','Συνεντεύξεις'],['seminaria','Σεμινάρια']];
+var THEMES=['Χορός','Μουσική','Τραγούδι & στίχος','Ενδυμασία','Ήθη & έθιμα','Γλέντι','Ιστορία','Τόποι & χωριά','Πρόσωπα','Προφορική μνήμη','Φωτογραφίες','Βίντεο','Κείμενα & άρθρα','Βιβλιογραφία'];
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function toast(t,k){var e=$('#toast');e.textContent=t;e.className='toast on '+(k||'');clearTimeout(e._t);e._t=setTimeout(function(){e.className='toast'},3200)}
@@ -210,7 +242,7 @@ $('#loginForm').addEventListener('submit',function(e){
   .catch(function(err){$('#loginErr').textContent=err==='pass'?'Ο κωδικός δεν είναι σωστός. Δοκιμάστε ξανά.':'Κάτι δεν πήγε καλά. Δοκιμάστε ξανά σε λίγο.'})
   .then(function(){b.disabled=false;b.textContent='Είσοδος'});
 });
-try{var sp=sessionStorage.getItem('meg-pass');if(sp){$('#pass').value=sp;$('#loginForm').requestSubmit()}}catch(e){}
+$('#pass').value='';try{var sp=sessionStorage.getItem('meg-pass');if(sp){$('#pass').value=sp;$('#loginForm').requestSubmit()}}catch(e){}
 
 /* ---- tabs ---- */
 D.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){
@@ -221,6 +253,7 @@ D.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click
 
 /* ---- lists ---- */
 var IC={edit:'<svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>',up:'<svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg>',down:'<svg viewBox="0 0 24 24"><path d="M6 10l6 6 6-6"/></svg>'};
+function ytid(u){u=String(u||'').trim();var m=u.match(/(?:v=|youtu\.be\/|embed\/|shorts\/|live\/)([\w-]{11})/);return m?m[1]:(/^[\w-]{11}$/.test(u)?u:'')}
 function kindName(k){var f=KINDS.find(function(x){return x[0]===k});return f?f[1]:'Νέα'}
 function fmt(d){if(!d)return '';var p=d.split('-');return p.length===3?p[2]+'/'+p[1]+'/'+p[0]:d}
 function renderAll(){
@@ -231,6 +264,13 @@ function renderAll(){
   $('#l-lessons').innerHTML=L.length?L.map(function(x,i){return '<div class="item"><div class="tx"><b>'+esc(x.area)+'</b><span>'+esc(x.day)+' · '+esc(x.time)+' · '+esc(x.teacher||'')+'</span></div><div class="acts">'+(i?'<button class="ib" type="button" aria-label="Πιο πάνω" data-mv="lessons:'+x.id+':-1">'+IC.up+'</button>':'')+'<button class="ib" type="button" aria-label="Αλλαγή" data-ed="lessons:'+x.id+'">'+IC.edit+'</button></div></div>'}).join(''):'<p class="empty">Δεν υπάρχουν μαθήματα.</p>';
   var S=C.shows||[],years=[],by={};S.forEach(function(s){var y=String(s.year||'—');if(!by[y]){by[y]=[];years.push(y)}by[y].push(s)});years.sort(function(a,b){return b.localeCompare(a)});
   $('#l-shows').innerHTML=years.map(function(y){return '<p class="year">'+esc(y)+'</p>'+by[y].map(function(x){return '<div class="item">'+(x.img?'<div class="th" style="background-image:url(\''+esc(x.img)+'\')"></div>':'')+'<div class="tx"><b>«'+esc(x.title)+'»</b><span>'+esc((x.text||'').slice(0,80))+'</span></div><div class="acts"><button class="ib" type="button" aria-label="Αλλαγή" data-ed="shows:'+x.id+'">'+IC.edit+'</button></div></div>'}).join('')}).join('');
+  ['videos','songs','library','press'].forEach(function(t){C[t]=C[t]||[];var el=$('#l-'+t);if(!el)return;
+    el.innerHTML=C[t].length?C[t].map(function(x){var sub='',th='';
+      if(t==='videos'){var id=ytid(x.yt);if(id)th='<div class="th" style="background-image:url(\'https://i.ytimg.com/vi/'+id+'/mqdefault.jpg\')"></div>';sub=esc([x.year,x.place||x.country].filter(Boolean).join(' · '))+'<br>'+(x.cats||[]).map(function(c){var f=VCATS.find(function(v){return v[0]===c});return '<span class="tg">'+(f?f[1]:c)+'</span>'}).join('')+(x.hidden?'<span class="tg">κρυφό</span>':'')}
+      else if(t==='songs')sub=esc(['Στίχοι: '+(x.lyricist||'—'),x.composer?'Μουσική: '+x.composer:'',x.singer?'Ερμηνεία: '+x.singer:''].filter(Boolean).join(' · '));
+      else if(t==='library')sub=esc([x.theme,x.type,x.year].filter(Boolean).join(' · '));
+      else sub=esc([x.outlet,fmt(x.date)].filter(Boolean).join(' · '));
+      return '<div class="item">'+th+'<div class="tx"><b>'+esc(x.title||'(χωρίς τίτλο)')+'</b><span class="meta">'+sub+'</span></div><div class="acts"><button class="ib" type="button" aria-label="Αλλαγή" data-ed="'+t+':'+x.id+'">'+IC.edit+'</button></div></div>'}).join(''):'<p class="empty">Δεν υπάρχει τίποτα ακόμα.</p>'});
   var k=C.contact||{};D.querySelectorAll('[data-c]').forEach(function(i){i.value=k[i.dataset.c]||''});
   D.querySelectorAll('[data-cb]').forEach(function(b){b.setAttribute('aria-pressed',!!k[b.dataset.cb])});
 }
@@ -246,18 +286,25 @@ D.addEventListener('click',function(e){
 
 /* ---- editor ---- */
 var FORMS={
- news:[['kind','Είδος','kind'],['title','Τίτλος','text','π.χ. Σεμινάριο κρητικών χορών στη Λάρισα'],['img','Αφίσα ή φωτογραφία','photo'],['when','Πότε','text','π.χ. Σάββατο 12 Δεκεμβρίου 2026 · 17:00 – 20:00'],['place','Πού','text','π.χ. Πολιτιστικό Κέντρο Λάρισας'],['text','Κείμενο','area','Λίγα λόγια για την ανακοίνωση'],['phone','Τηλέφωνο για πληροφορίες / κρατήσεις','tel','π.χ. 697 187 0962'],
+ news:[['kind','Είδος','kind'],['title','Τίτλος','text','π.χ. Σεμινάριο κρητικών χορών στη Λάρισα'],['img','Αφίσα ή φωτογραφία','photo'],['start','Ημερομηνία δράσης','date','','Από αυτήν η δράση μπαίνει στο Ημερολόγιο, στις «Προσεχείς» και — όταν περάσει — στις «Ολοκληρωμένες». Αν δεν είναι δράση, αφήστε το κενό.'],['end','Τελευταία ημέρα (αν κρατά πολλές μέρες)','date'],['when','Πότε (όπως θα γραφτεί)','text','π.χ. Σάββατο 12 Δεκεμβρίου 2026 · 17:00 – 20:00'],['place','Πού','text','π.χ. Πολιτιστικό Κέντρο Λάρισας'],['text','Κείμενο','area','Λίγα λόγια για την ανακοίνωση'],['phone','Τηλέφωνο για πληροφορίες / κρατήσεις','tel','π.χ. 697 187 0962'],
   ['_more','Περισσότερα (προαιρετικά)'],['date','Ημερομηνία ανάρτησης','date','','Ορίζει τη σειρά: η πιο πρόσφατη βγαίνει πρώτη.'],['link','Σύνδεσμος (π.χ. Facebook εκδήλωσης)','url','https://…'],['link_label','Κείμενο κουμπιού για τον σύνδεσμο','text','π.χ. Η εκδήλωση στο Facebook'],
   ['_en','Στα αγγλικά (προαιρετικά — αλλιώς φαίνονται τα ελληνικά)'],['title_en','Title','text'],['when_en','When','text'],['place_en','Where','text'],['text_en','Text','area']],
  lessons:[['area','Περιοχή','text','π.χ. Νέα Ιωνία'],['day','Ημέρα','text','π.χ. Κάθε Πέμπτη'],['time','Ώρες','text','π.χ. 18:00 – 21:30'],['teacher','Διδάσκει','text','π.χ. Γιάννης Μεγαλακάκης'],['club','Σύλλογος / χώρος','text'],['address','Διεύθυνση','text','Ο επισκέπτης την πατάει και ανοίγει ο χάρτης'],['phone','Τηλέφωνο πληροφοριών','tel'],
   ['_en','Στα αγγλικά (προαιρετικά)'],['area_en','Area','text'],['day_en','Day','text'],['teacher_en','Teacher','text'],['club_en','Association / venue','text'],['address_en','Address','text']],
+ videos:[['yt','Σύνδεσμος YouTube','text','π.χ. https://www.youtube.com/watch?v=…','Αντιγράψτε τη διεύθυνση του βίντεο από το YouTube.'],['title','Τίτλος','text'],['cats','Σε ποιες ενότητες θα εμφανίζεται','cats'],['where','Πού έγινε','where'],['place','Πόλη / χωριό','text','π.χ. Λάρισα'],['country','Χώρα (αν είναι στο εξωτερικό)','text','π.χ. Γερμανία'],['year','Χρονιά','text','π.χ. 2026'],['desc','Λίγα λόγια','area'],
+  ['_more','Περισσότερα (προαιρετικά)'],['org','Διοργανωτής / φορέας','text'],['show','Παράσταση','text'],['channel','Κανάλι / μέσο (για συνεντεύξεις)','text','π.χ. ΕΡΤ'],['host','Δημοσιογράφος / παρουσιαστής','text'],['speaker','Ομιλητής','text'],['theme','Θέμα','text'],['featured','Να φαίνεται και στην αρχική σελίδα','check'],['hidden','Κρυφό (να μη φαίνεται στην ιστοσελίδα)','check'],
+  ['_en','Στα αγγλικά (προαιρετικά)'],['title_en','Title','text'],['desc_en','Text','area']],
+ songs:[['title','Τίτλος τραγουδιού','text'],['lyricist','Στίχοι','text','Γιάννης Μεγαλακάκης'],['composer','Μουσική','text'],['singer','Ερμηνεία','text'],['year','Χρονιά','text'],['yt','Σύνδεσμος YouTube (αν υπάρχει)','text','https://www.youtube.com/watch?v=…'],['story','Η ιστορία του τραγουδιού','area'],['credits','Άλλοι συντελεστές','text','π.χ. Ενορχήστρωση, άλμπουμ'],
+  ['_en','Στα αγγλικά (προαιρετικά)'],['title_en','Title','text'],['story_en','Story','area']],
+ library:[['title','Τίτλος','text'],['author','Συγγραφέας / πηγή','text'],['theme','Θεματική','theme'],['type','Είδος','text','π.χ. Κείμενο, Φωτογραφία, Ηχητικό, Βίντεο'],['year','Χρονιά','text'],['desc','Λίγα λόγια','area'],['url','Σύνδεσμος (αν το υλικό είναι αλλού)','text','https://… ή erevna.html#ergo'],['keywords','Λέξεις για την αναζήτηση','text','π.χ. πεντοζάλι Σφακιά καταγραφή'],['ref','Βιβλιογραφική αναφορά','text']],
+ press:[['outlet','Μέσο','text','π.χ. Το Βήμα'],['title','Τίτλος δημοσιεύματος','text'],['date','Ημερομηνία','date'],['url','Σύνδεσμος','url','https://…'],['about','Μια φράση από το κείμενο','text'],['tags','Σε ποιες σελίδες θα φαίνεται','tags']],
  shows:[['year','Χρονιά','text','π.χ. 2027'],['title','Τίτλος παράστασης','text','χωρίς εισαγωγικά — μπαίνουν μόνα τους'],['img','Αφίσα (προαιρετικά)','photo'],['text','Λίγα λόγια','area','Πού, πότε, με ποιους μουσικούς'],
   ['_en','Στα αγγλικά (προαιρετικά)'],['title_en','Title','text'],['text_en','Text','area']]
 };
-var NAMES={news:['Νέα ανακοίνωση','Ανακοίνωση'],lessons:['Νέο μάθημα','Μάθημα'],shows:['Νέα παράσταση','Παράσταση']};
-function list(t){return t==='lessons'?C.lessons.items:C[t]}
+var NAMES={videos:['Νέο βίντεο','Βίντεο'],songs:['Νέο τραγούδι','Τραγούδι'],library:['Νέα καταχώριση','Καταχώριση'],press:['Νέο δημοσίευμα','Δημοσίευμα'],news:['Νέα ανακοίνωση','Ανακοίνωση'],lessons:['Νέο μάθημα','Μάθημα'],shows:['Νέα παράσταση','Παράσταση']};
+function list(t){if(t==='lessons')return C.lessons.items;C[t]=C[t]||[];return C[t]}
 function openEd(type,id){
-  var obj=id?JSON.parse(JSON.stringify(list(type).find(function(x){return x.id===id}))):{id:uid(type[0]),date:today(),kind:'seminar',year:String(new Date().getFullYear())};
+  var obj=id?JSON.parse(JSON.stringify(list(type).find(function(x){return x.id===id}))):(type==='videos'?{id:uid('v-'),cats:[],where:'gr',year:String(new Date().getFullYear())}:type==='songs'?{id:uid('t'),lyricist:'Γιάννης Μεγαλακάκης'}:type==='library'?{id:uid('b')}:type==='press'?{id:uid('p'),tags:[],date:today()}:{id:uid(type[0]),date:today(),kind:'seminar',year:String(new Date().getFullYear())});
   EDIT={type:type,id:id,o:obj};
   $('#edT').textContent=id?NAMES[type][1]:NAMES[type][0];
   var h='',inMore=false;
@@ -266,6 +313,10 @@ function openEd(type,id){
     var v=obj[f[0]]==null?'':obj[f[0]],ph=f[3]?' placeholder="'+esc(f[3])+'"':'';
     h+='<div class="f"><label for="e-'+f[0]+'">'+f[1]+'</label>'+(f[4]?'<span class="hint">'+f[4]+'</span>':'');
     if(f[2]==='kind')h+='<div class="chips" id="e-kind">'+KINDS.map(function(k){return '<button type="button" data-k="'+k[0]+'" aria-pressed="'+(v===k[0])+'">'+k[1]+'</button>'}).join('')+'</div>';
+    else if(f[2]==='cats'||f[2]==='tags'){var L2=f[2]==='cats'?VCATS:PTAGS,cur=obj[f[0]]||[];h+='<div class="chips multi" data-multi="'+f[0]+'">'+L2.map(function(k){return '<button type="button" data-v="'+k[0]+'" aria-pressed="'+(cur.indexOf(k[0])>-1)+'">'+k[1]+'</button>'}).join('')+'</div>'}
+    else if(f[2]==='where')h+='<div class="chips" data-one="where">'+[['gr','Ελλάδα'],['ab','Εξωτερικό']].map(function(k){return '<button type="button" data-v="'+k[0]+'" aria-pressed="'+((v||'gr')===k[0])+'">'+k[1]+'</button>'}).join('')+'</div>';
+    else if(f[2]==='theme')h+='<select id="e-'+f[0]+'" data-f="'+f[0]+'"><option value="">— διαλέξτε —</option>'+THEMES.map(function(t){return '<option'+(t===v?' selected':'')+'>'+esc(t)+'</option>'}).join('')+'</select>';
+    else if(f[2]==='check')h+='<label class="sw"><input type="checkbox" data-ck="'+f[0]+'"'+(v?' checked':'')+'> <span>Ναι</span></label>';
     else if(f[2]==='area')h+='<textarea id="e-'+f[0]+'" data-f="'+f[0]+'"'+ph+'>'+esc(v)+'</textarea>';
     else if(f[2]==='photo')h+='<div class="photo" id="e-photo"><img id="e-img" alt=""'+(v?' src="'+esc(v)+'"':' hidden')+'><label class="pick"><input type="file" accept="image/*" id="e-file">'+(v?'Αλλαγή φωτογραφίας':'Διαλέξτε φωτογραφία')+'</label><button type="button" class="rm" id="e-rm"'+(v?'':' hidden')+'>Αφαίρεση φωτογραφίας</button><span class="hint" id="e-up" style="margin-top:8px"></span></div>';
     else h+='<input id="e-'+f[0]+'" data-f="'+f[0]+'" type="'+(f[2]==='tel'?'tel':f[2]==='url'?'url':f[2]==='date'?'date':'text')+'" value="'+esc(v)+'"'+ph+'>';
@@ -275,6 +326,10 @@ function openEd(type,id){
   if(id)h+='<button class="btn btn-del" type="button" id="edDel">Διαγραφή</button>';
   $('#edBody').innerHTML=h;$('#ed').classList.add('on');$('#ed').scrollTop=0;D.body.style.overflow='hidden';
   D.querySelectorAll('#e-kind button').forEach(function(b){b.addEventListener('click',function(){D.querySelectorAll('#e-kind button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});EDIT.o.kind=b.dataset.k})});
+  D.querySelectorAll('#edBody [data-multi] button').forEach(function(b){b.addEventListener('click',function(){var k=b.parentNode.dataset.multi,a=EDIT.o[k]=EDIT.o[k]||[],on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);var i=a.indexOf(b.dataset.v);if(on&&i<0)a.push(b.dataset.v);if(!on&&i>-1)a.splice(i,1)})});
+  D.querySelectorAll('#edBody [data-one] button').forEach(function(b){b.addEventListener('click',function(){b.parentNode.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});EDIT.o[b.parentNode.dataset.one]=b.dataset.v})});
+  D.querySelectorAll('#edBody [data-ck]').forEach(function(i){i.addEventListener('change',function(){EDIT.o[i.dataset.ck]=i.checked})});
+  D.querySelectorAll('#edBody select[data-f]').forEach(function(i){i.addEventListener('change',function(){EDIT.o[i.dataset.f]=i.value})});
   D.querySelectorAll('#edBody [data-f]').forEach(function(i){i.addEventListener('input',function(){EDIT.o[i.dataset.f]=i.value})});
   var file=$('#e-file');if(file)file.addEventListener('change',function(){if(file.files[0])upload(file.files[0])});
   var rm=$('#e-rm');if(rm)rm.addEventListener('click',function(){EDIT.o.img='';$('#e-img').hidden=true;rm.hidden=true});
@@ -289,9 +344,12 @@ $('#edOk').addEventListener('click',function(){
   var o=EDIT.o,t=EDIT.type;
   var req=t==='lessons'?'area':'title';
   if(!String(o[req]||'').trim()){toast(t==='lessons'?'Γράψτε την περιοχή':'Γράψτε τον τίτλο','bad');return}
+  if(t==='videos'){var id=ytid(o.yt);if(!id){toast('Ο σύνδεσμος YouTube δεν είναι σωστός','bad');return}o.yt=id;if(!(o.cats||[]).length){toast('Διαλέξτε τουλάχιστον μία ενότητα','bad');return}}
+  if(t==='songs'&&o.yt){var sid=ytid(o.yt);if(!sid){toast('Ο σύνδεσμος YouTube δεν είναι σωστός','bad');return}o.yt=sid}
+  if(t==='news'&&o.end&&o.start&&o.end<o.start){toast('Η τελευταία ημέρα είναι πριν από την πρώτη','bad');return}
   if(D.querySelector('#e-up .spin')){toast('Περιμένετε να ανέβει η φωτογραφία','bad');return}
   var arr=list(t),i=arr.findIndex(function(x){return x.id===o.id});
-  if(i>-1)arr[i]=o;else if(t==='lessons')arr.push(o);else arr.unshift(o);
+  if(i>-1)arr[i]=o;else if(t==='lessons'||t==='songs')arr.push(o);else arr.unshift(o);
   closeEd();renderAll();changed();toast('Αποθηκεύτηκε — πατήστε «Δημοσίευση» για να φανεί στην ιστοσελίδα');
 });
 
